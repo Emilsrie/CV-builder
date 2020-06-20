@@ -7,6 +7,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CvBuilderApplication {
 
 	public static void main(String[] args) {
+		
+		//comment
 		SpringApplication.run(CvBuilderApplication.class, args);
 	}
 

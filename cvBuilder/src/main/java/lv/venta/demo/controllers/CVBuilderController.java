@@ -126,7 +126,7 @@ public class CVBuilderController
 	@GetMapping("/languages")
 	public String insertLanguages(Languages languages)
 	{
-		return "hello";
+		return "languages-input";
 	}
 	
 	@PostMapping("/languages")

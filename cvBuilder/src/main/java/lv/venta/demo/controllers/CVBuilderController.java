@@ -170,13 +170,6 @@ public class CVBuilderController
 	@GetMapping("/download")
 	public String givePDF(Model model)
 	{
-		ArrayList<CV> cvs = serviceImpl.selectAllCVs();
-		//cvs.get(0).setBackground_information("aaaaaaaaaaaaaaaaatest");
-		serviceImpl.completeCV(cvs.get(0));
-		//cvs.get(0).setAllEducations(serviceImpl.selectAllEducations());
-		//cvs.get(0).setAllJobExperiences(serviceImpl.selectAllJobExperiences());
-		//cvs.get(0).setAllLanguages(serviceImpl.selectAllLanguages());
-		System.out.println(cvs.get(0).toString());
 		return "show";
 	}
 

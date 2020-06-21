@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 //Education for person
 @Entity
 @Table(name="EducationTable")
@@ -23,7 +25,7 @@ public class Education {
 	@Column(name = "School_name")
 	private String school_name;
 	
-	@Column(name = "Study_Field")
+	@Column(name = "Field_of_study")
 	private String field_of_study;
 	
 	@Column(name = "Location")
@@ -32,9 +34,11 @@ public class Education {
 	@Column(name = "Degree")
 	private String degree;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "Startdate")
 	private Date startDate;
 	
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "Enddate")
 	private Date endDate;
 	

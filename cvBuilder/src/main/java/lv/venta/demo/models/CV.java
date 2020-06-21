@@ -26,13 +26,13 @@ public class CV {
 	@NotEmpty
 	@Column(name = "Name")
 	@Size(min = 3, max = 60)
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$", message="Invalid letters")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	private String name;
 	
 	@NotEmpty
 	@Column(name = "Surname")
 	@Size(min = 3, max = 60)
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$", message="Invalid letters")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	private String surname;
 	
 	@Column(name = "Background_information")

@@ -20,22 +20,22 @@ public class Education {
 	@Column(name = "ID")
 	private int id;
 	
-	@Column
+	@Column(name = "School_name")
 	private String school_name;
 	
-	@Column
+	@Column(name = "Study_Field")
 	private String field_of_study;
 	
-	@Column
+	@Column(name = "Location")
 	private String location;
 	
-	@Column
+	@Column(name = "Degree")
 	private String degree;
 	
-	@Column
+	@Column(name = "Startdate")
 	private Date startDate;
 	
-	@Column
+	@Column(name = "Enddate")
 	private Date endDate;
 	
 	@ManyToOne

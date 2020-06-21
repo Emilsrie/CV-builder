@@ -18,16 +18,16 @@ public class Languages {
 	@Column(name = "ID")
 	private int id;
 	
-	@Column
+	@Column(name = "Language")
 	private String language;
 	
-	@Column
+	@Column(name = "Speaking")
 	private String speaking;
 
-	@Column
+	@Column(name = "Understanding")
 	private String understanding;
 	
-	@Column
+	@Column(name = "Writing")
 	private String writing;
 	
 	@ManyToOne

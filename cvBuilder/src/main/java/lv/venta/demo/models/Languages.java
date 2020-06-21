@@ -1,0 +1,102 @@
+package lv.venta.demo.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+//Language skills
+@Entity
+@Table(name="LanguageTable")
+public class Languages {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "ID")
+	private int id;
+	
+	@Column
+	private String language;
+	
+	@Column
+	private String speaking;
+
+	@Column
+	private String understanding;
+	
+	@Column
+	private String writing;
+	
+	@ManyToOne
+	@JoinColumn(name = "ID")
+	private CV cv;
+
+	public Languages() {
+	}
+	
+	public Languages(String language, String speaking, String understanding, String writing, CV cv) {
+		super();
+		this.language = language;
+		this.speaking = speaking;
+		this.understanding = understanding;
+		this.writing = writing;
+		this.cv = cv;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
+
+	public String getSpeaking() {
+		return speaking;
+	}
+
+	public void setSpeaking(String speaking) {
+		this.speaking = speaking;
+	}
+
+	public String getUnderstanding() {
+		return understanding;
+	}
+
+	public void setUnderstanding(String understanding) {
+		this.understanding = understanding;
+	}
+
+	public String getWriting() {
+		return writing;
+	}
+
+	public void setWriting(String writing) {
+		this.writing = writing;
+	}
+
+	public CV getCv() {
+		return cv;
+	}
+
+	public void setCv(CV cv) {
+		this.cv = cv;
+	}
+
+	@Override
+	public String toString() {
+		return "Languages [language=" + language + ", speaking=" + speaking + ", understanding=" + understanding
+				+ ", writing=" + writing + ", cv=" + cv + "]";
+	}
+}

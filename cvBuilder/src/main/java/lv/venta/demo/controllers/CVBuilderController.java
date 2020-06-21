@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import javax.validation.Valid;
 
 import lv.venta.demo.models.CV;
+import lv.venta.demo.models.Education;
 import lv.venta.demo.models.JobExperience;
 import lv.venta.demo.services.impl.ServiceImpl;
 
@@ -79,12 +80,18 @@ public class CVBuilderController
 		if(!result.hasErrors())
 		{
 			//add jobExp to repo
-			return "show";
+			return "redirect:/cvBuilder/edu";
 		}
 		else
 		{
 			return "job-input";
 		}
+	}
+	
+	@GetMapping("/edu")
+	public String insertEducation(Education education)
+	{
+		return "edu-input";
 	}
 	
 	@GetMapping("/showdata")//localhost:8080/cvBuilder/showdata

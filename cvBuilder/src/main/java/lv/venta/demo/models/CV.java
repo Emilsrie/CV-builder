@@ -94,8 +94,6 @@ public class CV {
 		this.email = email;
 	}
 
-	
-
 	public int getC_id() {
 		return c_id;
 	}

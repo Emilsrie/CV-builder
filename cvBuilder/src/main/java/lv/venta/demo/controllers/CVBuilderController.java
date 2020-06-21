@@ -25,7 +25,7 @@ public class CVBuilderController
 {
 	@Autowired
 	ServiceImpl serviceImpl;
-	
+
 	@GetMapping("/test") //localhost:8080/cvBuilder/test
 	public String testStuff()
 	{

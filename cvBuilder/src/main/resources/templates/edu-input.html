@@ -1,0 +1,46 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>CV Creation</title>
+	</head>
+	
+	<body xmlns:th="http://www.thymeleaf.org">
+		<form action="#" th:action="@{/cvBuilder/edu}" th:object="${education}" method="post">
+			<table>
+				<tr>
+					<th>Name of educational institution</th>
+					<td><input type = "text" th:field="*{school_name}"></td>
+				</tr>
+				
+				<tr>
+					<th>Field of study</th>
+					<td><input type = "text" th:field="*{field_of_study}"></td>
+				</tr>
+				
+				<tr>
+					<th>Location</th>
+					<td><input type = "text" th:field="*{location}"></td>
+				</tr>
+				
+				<tr>
+					<th>Degree</th>
+					<td><input type = "text" th:field="*{degree}"></td>
+				</tr>
+				
+				<tr>
+					<th>Start date</th>
+					<td><input type = "date" th:field="*{startDate}"></td>
+				</tr>
+				
+				<tr>
+					<th>End date</th>
+					<td><input type = "date" th:field="*{endDate}"></td>
+				</tr>
+				
+			</table>
+			<input type='submit' name='new' value='save and add new' />
+			<input type='submit' name='cont' value='save and continue' formAction="/cvBuilder/edu/cont"/>
+		</form>
+	</body>
+</html>

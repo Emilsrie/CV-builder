@@ -20,22 +20,22 @@ public class JobExperience {
 	@Column(name = "J_ID")
 	private int j_id;
 	
-	@Column
+	@Column(name = "Job_title")
 	private String job_title;
 	
-	@Column
+	@Column(name = "Job_info")
 	private String job_info;
 
-	@Column
+	@Column(name = "Company_name")
 	private String company_name;
 	
-	@Column
+	@Column(name = "Location")
 	private String location;
 	
-	@Column
+	@Column(name = "Startdate")
 	private Date startDate;
 	
-	@Column
+	@Column(name = "Enddate")
 	private Date endDate;
 	
 	@ManyToOne

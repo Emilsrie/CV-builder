@@ -21,50 +21,52 @@ public class CV {
 	@Column(name = "C_ID")
 	private int c_id;
 	
-	@Column
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒģĢīĪķĶļĻņŅšŠžŽ]+$")
-	@Size(min = 2, max = 60)
+
+	@Column(name = "Name")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
+	@Size(min = 3, max = 60)
 	private String name;
 	
-	@Column
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒģĢīĪķĶļĻņŅšŠžŽ]+$")
-	@Size(min = 2, max = 60)
+	@Column(name = "Surname")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
+	@Size(min = 3, max = 60)
 	private String surname;
 	
-	@Column
+	@Column(name = "Background_info")
 	private String background_information;
 	
-	@Column
+	@Column(name = "Other_skills")
 	private String other_skills;
 	
-	@Column
+	@Column(name = "Phone")
 	@Pattern(regexp = "^[0-9]*$")
 	@Size(min = 8, max = 8)
 	private String phone_number;
 	
-	@Column
+	@Column(name = "Address")
 	private String address;
 	
-	@Column
+	@Column(name = "City")
 	private String city;
 	
-	@Column
+	@Column(name = "Province")
 	private String province;
 	
-	@Column
+	@Column(name = "Zip")
 	private String zip_code;
 	
-	@Column
+	@Column(name = "Email")
 	private String email;
 	
-	@OneToMany(mappedBy = "cv")
-	private Collection<JobExperience> allJobExperiences;
 	
 	@OneToMany(mappedBy = "cv")
-	private Collection<Education> allEducations;
+	private Collection<JobExperience> AllJobExperiences;
 	
 	@OneToMany(mappedBy = "cv")
-	private Collection<Languages> allLanguages;
+	private Collection<Education> AllEducations;
+	
+	@OneToMany(mappedBy = "cv")
+	private Collection<Languages> AllLanguages;
 	
 	public CV() {
 	}
@@ -86,9 +88,9 @@ public class CV {
 		this.province = province;
 		this.zip_code = zip_code;
 		this.email = email;
-		this.allJobExperiences = allJobExperiences;
-		this.allEducations = allEducations;
-		this.allLanguages = allLanguages;
+		this.AllJobExperiences = allJobExperiences;
+		this.AllEducations = allEducations;
+		this.AllLanguages = allLanguages;
 	}
 
 	
@@ -102,27 +104,27 @@ public class CV {
 	}
 
 	public Collection<JobExperience> getAllJobExperiences() {
-		return allJobExperiences;
+		return AllJobExperiences;
 	}
 
 	public void setAllJobExperiences(Collection<JobExperience> allJobExperiences) {
-		this.allJobExperiences = allJobExperiences;
+		this.AllJobExperiences = allJobExperiences;
 	}
 
 	public Collection<Education> getAllEducations() {
-		return allEducations;
+		return AllEducations;
 	}
 
 	public void setAllEducations(Collection<Education> allEducations) {
-		this.allEducations = allEducations;
+		this.AllEducations = allEducations;
 	}
 
 	public Collection<Languages> getAllLanguages() {
-		return allLanguages;
+		return AllLanguages;
 	}
 
 	public void setAllLanguages(Collection<Languages> allLanguages) {
-		this.allLanguages = allLanguages;
+		this.AllLanguages = allLanguages;
 	}
 
 	public String getName() {
@@ -210,7 +212,7 @@ public class CV {
 		return "CV [name=" + name + ", surname=" + surname + ", background_information=" + background_information
 				+ ", other_skills=" + other_skills + ", phone_number=" + phone_number + ", address=" + address
 				+ ", city=" + city + ", province=" + province + ", zip_code=" + zip_code + ", email=" + email
-				+ ", allJobExperiences=" + allJobExperiences + ", allEducations=" + allEducations + ", allLanguages="
-				+ allLanguages + "]";
+				+ ", allJobExperiences=" + AllJobExperiences + ", allEducations=" + AllEducations + ", allLanguages="
+				+ AllLanguages + "]";
 	}
 }

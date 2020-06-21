@@ -19,6 +19,8 @@ import lv.venta.demo.models.JobExperience;
 import lv.venta.demo.models.Languages;
 import lv.venta.demo.services.impl.ServiceImpl;
 
+
+//jdbc:h2:file:~/cv
 @Controller
 @RequestMapping("/cvBuilder")//localhost:8080/cvBuilder
 public class CVBuilderController
@@ -170,12 +172,19 @@ public class CVBuilderController
 	{
 		ArrayList<CV> cvs = serviceImpl.selectAllCVs();
 		//cvs.get(0).setBackground_information("aaaaaaaaaaaaaaaaatest");
-		model.addAttribute("innerObj", serviceImpl.selectAllEducations());
+		serviceImpl.completeCV(cvs.get(0));
 		//cvs.get(0).setAllEducations(serviceImpl.selectAllEducations());
 		//cvs.get(0).setAllJobExperiences(serviceImpl.selectAllJobExperiences());
 		//cvs.get(0).setAllLanguages(serviceImpl.selectAllLanguages());
-		//serviceImpl.insertCV(cvs.get(0));
-		return "download";
+		System.out.println(cvs.get(0).toString());
+		return "show";
 	}
 
+	
+	@GetMapping("/testfile")
+	public String makeFile()
+	{
+		serviceImpl.putAllDataInFile();
+		return "hello";
+	}
 }

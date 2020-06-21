@@ -20,16 +20,15 @@ public class CV {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "C_ID")
 	private int c_id;
-	
 
 	@Column(name = "Name")
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	@Size(min = 3, max = 60)
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	private String name;
 	
 	@Column(name = "Surname")
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	@Size(min = 3, max = 60)
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	private String surname;
 	
 	@Column(name = "Background_information")

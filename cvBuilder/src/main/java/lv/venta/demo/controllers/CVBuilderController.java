@@ -166,8 +166,15 @@ public class CVBuilderController
 	}
 	
 	@GetMapping("/download")
-	public String givePDF()
+	public String givePDF(Model model)
 	{
+		ArrayList<CV> cvs = serviceImpl.selectAllCVs();
+		//cvs.get(0).setBackground_information("aaaaaaaaaaaaaaaaatest");
+		model.addAttribute("innerObj", serviceImpl.selectAllEducations());
+		//cvs.get(0).setAllEducations(serviceImpl.selectAllEducations());
+		//cvs.get(0).setAllJobExperiences(serviceImpl.selectAllJobExperiences());
+		//cvs.get(0).setAllLanguages(serviceImpl.selectAllLanguages());
+		//serviceImpl.insertCV(cvs.get(0));
 		return "download";
 	}
 

@@ -15,8 +15,8 @@ import javax.persistence.Table;
 public class Languages {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID")
-	private int id;
+	@Column(name = "L_ID")
+	private int l_id;
 	
 	@Column(name = "Language")
 	private String language;
@@ -31,7 +31,7 @@ public class Languages {
 	private String writing;
 	
 	@ManyToOne
-	@JoinColumn(name = "ID")
+	@JoinColumn(name = "C_ID")
 	private CV cv;
 
 	public Languages() {
@@ -46,12 +46,14 @@ public class Languages {
 		this.cv = cv;
 	}
 
-	public int getId() {
-		return id;
+	
+
+	public int getL_id() {
+		return l_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setL_id(int l_id) {
+		this.l_id = l_id;
 	}
 
 	public String getLanguage() {

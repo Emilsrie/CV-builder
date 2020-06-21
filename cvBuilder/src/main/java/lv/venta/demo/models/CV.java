@@ -18,9 +18,10 @@ import javax.validation.constraints.Size;
 public class CV {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID")
-	private int id;
+	@Column(name = "C_ID")
+	private int c_id;
 	
+
 	@Column(name = "Name")
 	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	@Size(min = 3, max = 60)
@@ -92,12 +93,14 @@ public class CV {
 		this.AllLanguages = allLanguages;
 	}
 
-	public int getId() {
-		return id;
+	
+
+	public int getC_id() {
+		return c_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setC_id(int c_id) {
+		this.c_id = c_id;
 	}
 
 	public Collection<JobExperience> getAllJobExperiences() {

@@ -32,22 +32,20 @@ public class ServiceImpl implements IService{
 	@Autowired
 	ILanguagesRepo languagesRepo;
 	
-	@Autowired
-	IService service;
 	
 	@Override
 	public ArrayList<JobExperience> selectAllJobExperiences(){
-		return service.selectAllJobExperiences();
+		return (ArrayList<JobExperience>) jobExperienceRepo.findAll();
 	}
 	
 	@Override
 	public ArrayList<Education> selectAllEducations(){
-		return service.selectAllEducations();
+		return (ArrayList<Education>) educationRepo.findAll();
 	}
 	
 	@Override
 	public ArrayList<Languages> selectAllLanguages(){
-		return service.selectAllLanguages();
+		return (ArrayList<Languages>) languagesRepo.findAll();
 	}
 
 	@Override

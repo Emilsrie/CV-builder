@@ -8,9 +8,14 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.ArrayList;
+
 import javax.validation.Valid;
 
 import lv.venta.demo.models.CV;
+import lv.venta.demo.models.Education;
+import lv.venta.demo.models.JobExperience;
 import lv.venta.demo.services.impl.ServiceImpl;
 
 @Controller
@@ -29,7 +34,6 @@ public class CVBuilderController
 	@GetMapping("/build")//localhost:8080/cvBuilder/build
 	public String makeCVGet(CV cv)
 	{
-		//TODO make input fields bigger
 		return "data_input";
 	}
 	
@@ -42,12 +46,52 @@ public class CVBuilderController
 		if(!result.hasErrors())
 		{
 			serviceImpl.insertCV(cv);
-			return "redirect:/cvBuilder/download";
+			return "redirect:/cvBuilder/job";
 		}
 		else
 		{
 			return "data_input";
 		}
+	}
+	
+	@GetMapping("/job")
+	public String insertJobExperienceGet(JobExperience jobExperience)
+	{
+		return "job-input";
+	}
+	
+	@PostMapping("/job")
+	public String insertJobExperiencePost(@Valid JobExperience jobExperience, BindingResult result)
+	{
+		if(!result.hasErrors())
+		{
+			//add jobExp to repo
+			return "redirect:/cvBuilder/job";
+		}
+		else
+		{
+			return "job-input";
+		}
+	}
+	
+	@PostMapping("/job/cont")
+	public String insertJobAndContinuetoEducation(@Valid JobExperience jobExperience, BindingResult result)
+	{
+		if(!result.hasErrors())
+		{
+			//add jobExp to repo
+			return "redirect:/cvBuilder/edu";
+		}
+		else
+		{
+			return "job-input";
+		}
+	}
+	
+	@GetMapping("/edu")
+	public String insertEducation(Education education)
+	{
+		return "edu-input";
 	}
 	
 	@GetMapping("/showdata")//localhost:8080/cvBuilder/showdata

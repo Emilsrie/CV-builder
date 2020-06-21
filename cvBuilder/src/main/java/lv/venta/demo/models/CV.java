@@ -18,17 +18,17 @@ import javax.validation.constraints.Size;
 public class CV {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID")
-	private int id;
+	@Column(name = "C_ID")
+	private int c_id;
 	
 	@Column
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
-	@Size(min = 3, max = 60)
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒģĢīĪķĶļĻņŅšŠžŽ]+$")
+	@Size(min = 2, max = 60)
 	private String name;
 	
 	@Column
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
-	@Size(min = 3, max = 60)
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒģĢīĪķĶļĻņŅšŠžŽ]+$")
+	@Size(min = 2, max = 60)
 	private String surname;
 	
 	@Column
@@ -91,12 +91,14 @@ public class CV {
 		this.allLanguages = allLanguages;
 	}
 
-	public int getId() {
-		return id;
+	
+
+	public int getC_id() {
+		return c_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setC_id(int c_id) {
+		this.c_id = c_id;
 	}
 
 	public Collection<JobExperience> getAllJobExperiences() {

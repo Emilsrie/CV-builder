@@ -17,8 +17,8 @@ import javax.persistence.Table;
 public class JobExperience {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "ID")
-	private int id;
+	@Column(name = "J_ID")
+	private int j_id;
 	
 	@Column
 	private String job_title;
@@ -39,7 +39,7 @@ public class JobExperience {
 	private Date endDate;
 	
 	@ManyToOne
-	@JoinColumn(name = "ID")
+	@JoinColumn(name = "C_ID")
 	private CV cv;
 
 	public JobExperience() {
@@ -57,12 +57,13 @@ public class JobExperience {
 		this.cv = cv;
 	}
 
-	public int getId() {
-		return id;
+
+	public int getJ_id() {
+		return j_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setJ_id(int j_id) {
+		this.j_id = j_id;
 	}
 
 	public String getJob_title() {

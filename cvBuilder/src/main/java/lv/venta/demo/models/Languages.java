@@ -37,13 +37,12 @@ public class Languages {
 	public Languages() {
 	}
 	
-	public Languages(String language, String speaking, String understanding, String writing, CV cv) {
+	public Languages(String language, String speaking, String understanding, String writing) {
 		super();
 		this.language = language;
 		this.speaking = speaking;
 		this.understanding = understanding;
 		this.writing = writing;
-		this.cv = cv;
 	}
 
 	

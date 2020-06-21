@@ -46,7 +46,7 @@ public class JobExperience {
 	}
 	
 	public JobExperience(String job_title, String job_info, String company_name, String location, Date startDate,
-			Date endDate, CV cv) {
+			Date endDate) {
 		super();
 		this.job_title = job_title;
 		this.job_info = job_info;
@@ -54,7 +54,6 @@ public class JobExperience {
 		this.location = location;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.cv = cv;
 	}
 
 

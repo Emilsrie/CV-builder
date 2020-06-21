@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.PastOrPresent;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -34,6 +35,7 @@ public class JobExperience {
 	@Column(name = "Location")
 	private String location;
 	
+	@PastOrPresent
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "StartDate")
 	private Date startDate;
@@ -115,7 +117,9 @@ public class JobExperience {
 	}
 
 	public void setEndDate(Date endDate) {
-		//Validation. Maybe remake to Calendar
+		if(startDate.after(endDate)) {
+			this.endDate = new Date();
+		}
 		this.endDate = endDate;
 	}
 

@@ -118,7 +118,7 @@ public class JobExperience {
 
 	public void setEndDate(Date endDate) {
 		if(startDate.after(endDate)) {
-			//Do something
+			this.endDate = new Date();
 		}
 		this.endDate = endDate;
 	}

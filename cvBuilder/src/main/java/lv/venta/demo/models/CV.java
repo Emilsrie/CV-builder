@@ -22,17 +22,17 @@ public class CV {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "C_ID")
 	private int c_id;
-
+	
 	@NotEmpty
 	@Column(name = "Name")
 	@Size(min = 3, max = 60)
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$", message="Invalid letters")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	private String name;
 	
 	@NotEmpty
 	@Column(name = "Surname")
 	@Size(min = 3, max = 60)
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$", message="Invalid letters")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	private String surname;
 	
 	@Column(name = "Background_information")
@@ -63,7 +63,6 @@ public class CV {
 	@Column(name = "Email")
 	private String email;
 	
-	
 	@OneToMany(mappedBy = "cv")
 	private Collection<JobExperience> AllJobExperiences;
 	
@@ -75,7 +74,7 @@ public class CV {
 	
 	public CV() {
 	}
-
+		
 	public CV(@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$") @Size(min = 3, max = 60) String name,
 			@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$") @Size(min = 3, max = 60) String surname,
 			String background_information, String other_skills,

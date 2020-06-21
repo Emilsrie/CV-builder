@@ -117,9 +117,7 @@ public class JobExperience {
 	}
 
 	public void setEndDate(Date endDate) {
-		if(startDate.after(endDate)) {
-			this.endDate = new Date();
-		}
+		//Validation. Maybe remake to Calendar
 		this.endDate = endDate;
 	}
 

@@ -32,13 +32,13 @@ public class CV {
 	@Size(min = 3, max = 60)
 	private String surname;
 	
-	@Column(name = "Background_info")
+	@Column(name = "Background_information")
 	private String background_information;
 	
 	@Column(name = "Other_skills")
 	private String other_skills;
 	
-	@Column(name = "Phone")
+	@Column(name = "Phone_number")
 	@Pattern(regexp = "^[0-9]*$")
 	@Size(min = 8, max = 8)
 	private String phone_number;
@@ -52,7 +52,7 @@ public class CV {
 	@Column(name = "Province")
 	private String province;
 	
-	@Column(name = "Zip")
+	@Column(name = "Zip_code")
 	private String zip_code;
 	
 	@Column(name = "Email")

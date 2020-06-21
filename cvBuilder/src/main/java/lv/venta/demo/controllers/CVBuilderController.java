@@ -20,19 +20,19 @@ import lv.venta.demo.models.Languages;
 import lv.venta.demo.services.impl.ServiceImpl;
 
 @Controller
-@RequestMapping("/cvBuilder")//localhost:8080/cvBuilder
+@RequestMapping("/cvBuilder") //localhost:8080/cvBuilder
 public class CVBuilderController
 {
 	@Autowired
 	ServiceImpl serviceImpl;
 	
-	@GetMapping("/test")//localhost:8080/cvBuilder/test
+	@GetMapping("/test") //localhost:8080/cvBuilder/test
 	public String testStuff()
 	{
 		return "hello";
 	}
 	
-	@GetMapping("/build")//localhost:8080/cvBuilder/build
+	@GetMapping("/build") //localhost:8080/cvBuilder/build
 	public String makeCVGet(CV cv)
 	{
 		return "data_input";
@@ -158,7 +158,7 @@ public class CVBuilderController
 		}
 	}
 	
-	@GetMapping("/showdata")//localhost:8080/cvBuilder/showdata
+	@GetMapping("/showdata") //localhost:8080/cvBuilder/showdata
 	public String show(Model model)
 	{
 		model.addAttribute("innerObj", serviceImpl.selectAllCVs());

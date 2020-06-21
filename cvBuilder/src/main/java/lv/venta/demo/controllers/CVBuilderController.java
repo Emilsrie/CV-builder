@@ -18,7 +18,7 @@ import lv.venta.demo.models.Education;
 import lv.venta.demo.models.JobExperience;
 import lv.venta.demo.models.Languages;
 import lv.venta.demo.services.impl.ServiceImpl;
-
+//TEST
 @Controller
 @RequestMapping("/cvBuilder")//localhost:8080/cvBuilder
 public class CVBuilderController

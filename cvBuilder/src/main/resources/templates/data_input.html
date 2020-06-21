@@ -7,45 +7,55 @@
 		<form action="#" th:action="@{/cvBuilder/build}" th:object="${CV}" method="post">
 			<table>
 				<tr>
+					<th>Name</th>
 					<td><input type = "text" th:field="*{name}"></td>
 					<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
 				</tr>
 				
 				<tr>
+					<th>Surname</th>
 					<td><input type = "text" th:field="*{surname}"></td>
 					<td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></td>
 				</tr>
 				
 				<tr>
+					<th>Background information</th>
 					<td><input type = "text" th:field="*{background_information}"></td>
 				</tr>
 				
 				<tr>
+					<th>Other skills</th>
 					<td><input type = "text" th:field="*{other_skills}"></td>
 				</tr>
 				
 				<tr>
+					<th>Phone number</th>
 					<td><input type = "text" th:field="*{phone_number}"></td>
 					<td th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"></td>
 				</tr>
 				
 				<tr>
+					<th>Address</th>
 					<td><input type = "text" th:field="*{address}"></td>
 				</tr>
 				
 				<tr>
+					<th>City</th>
 					<td><input type = "text" th:field="*{city}"></td>
 				</tr>
 				
 				<tr>
+					<th>Province</th>
 					<td><input type = "text" th:field="*{province}"></td>
 				</tr>
 				
 				<tr>
+					<th>Zip code</th>
 					<td><input type = "text" th:field="*{zip_code}"></td>
 				</tr>
 				
 				<tr>
+					<th>Email</th>
 					<td><input type = "text" th:field="*{email}"></td>
 				</tr>
 				

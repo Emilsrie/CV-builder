@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -20,16 +21,17 @@ public class CV {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "C_ID")
 	private int c_id;
-	
 
+	@NotNull
 	@Column(name = "Name")
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	@Size(min = 3, max = 60)
+	@Pattern(regexp = "[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	private String name;
 	
+	@NotNull
 	@Column(name = "Surname")
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	@Size(min = 3, max = 60)
+	@Pattern(regexp = "[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	private String surname;
 	
 	@Column(name = "Background_information")
@@ -55,6 +57,7 @@ public class CV {
 	@Column(name = "Zip_code")
 	private String zip_code;
 	
+	@NotNull
 	@Column(name = "Email")
 	private String email;
 	

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
 
 import javax.validation.Valid;
 
@@ -19,6 +18,8 @@ import lv.venta.demo.models.JobExperience;
 import lv.venta.demo.models.Languages;
 import lv.venta.demo.services.impl.ServiceImpl;
 
+
+//jdbc:h2:file:~/cv
 @Controller
 @RequestMapping("/cvBuilder") //localhost:8080/cvBuilder
 public class CVBuilderController
@@ -166,9 +167,16 @@ public class CVBuilderController
 	}
 	
 	@GetMapping("/download")
-	public String givePDF()
+	public String givePDF(Model model)
 	{
-		return "download";
+		return "show";
 	}
 
+	
+	@GetMapping("/testfile")
+	public String makeFile()
+	{
+		serviceImpl.putAllDataInFile();
+		return "hello";
+	}
 }

@@ -1,6 +1,10 @@
 package lv.venta.demo.services.impl;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
 
 import javax.validation.Valid;
@@ -77,8 +81,54 @@ public class ServiceImpl implements IService{
 		languagesRepo.save(lang);
 		
 	}
-	
 
+
+	@Override
+	public void putAllDataInFile() {
+		try {
+		File myfile = new File("testfile.txt");
+		
+			if(myfile.createNewFile())
+			{
+				System.out.println("File created: " + myfile.getName());
+			}
+			else
+			{
+				System.out.println("already exists");
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try
+		{
+			FileWriter myWriter = new FileWriter("testfile.txt");
+			for(CV c: cvRepo.findAll())
+			{
+				myWriter.write(c.toString());
+			}
+			for(JobExperience j: jobExperienceRepo.findAll())
+			{
+				myWriter.write(j.toString());
+			}
+			for(Education e: educationRepo.findAll())
+			{
+				myWriter.write(e.toString());
+			}
+			for(Languages l: languagesRepo.findAll())
+			{
+				myWriter.write(l.toString());
+			}
+			myWriter.close();
+		}catch (IOException e)
+		{
+			System.out.println("error");
+			e.printStackTrace();
+		}
+	}
+	
+	
 	
 	
 	

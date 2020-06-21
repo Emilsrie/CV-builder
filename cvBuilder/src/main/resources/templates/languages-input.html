@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>CV Creation</title>
+	</head>
+	
+	<body xmlns:th="http://www.thymeleaf.org">
+		<form action="#" th:action="@{/cvBuilder/languages}" th:object="${languages}" method="post">
+			<table>
+				<tr>
+					<th>Language</th>
+					<td><input type = "text" th:field="*{language}"></td>
+				</tr>
+				
+				<tr>
+					<th>Speaking</th>
+					<td>
+					<select th:field="*{speaking}">
+					<option value="A1">A1</option>
+					<option value="A2">A2</option>
+					<option value="B1">B1</option>
+					<option value="B2">B2</option>
+					<option value="C1">C1</option>
+					<option value="C2">C2</option>
+					</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>Understanding</th>
+					<td>
+					<select th:field="*{understanding}">
+					<option value="A1">A1</option>
+					<option value="A2">A2</option>
+					<option value="B1">B1</option>
+					<option value="B2">B2</option>
+					<option value="C1">C1</option>
+					<option value="C2">C2</option>
+					</select>
+					</td>
+				</tr>
+				
+				<tr>
+					<th>Writing</th>
+					<td>
+					<select th:field="*{writing}">
+					<option value="A1">A1</option>
+					<option value="A2">A2</option>
+					<option value="B1">B1</option>
+					<option value="B2">B2</option>
+					<option value="C1">C1</option>
+					<option value="C2">C2</option>
+					</select>
+					</td>
+				</tr>
+				
+			</table>
+			<input type='submit' name='new' value='save and add new' />
+			<input type='submit' name='cont' value='save and continue' formAction="/cvBuilder/languages/cont"/>
+		</form>
+	</body>
+</html>

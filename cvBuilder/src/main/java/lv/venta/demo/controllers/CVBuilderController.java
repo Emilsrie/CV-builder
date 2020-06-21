@@ -16,6 +16,7 @@ import javax.validation.Valid;
 import lv.venta.demo.models.CV;
 import lv.venta.demo.models.Education;
 import lv.venta.demo.models.JobExperience;
+import lv.venta.demo.models.Languages;
 import lv.venta.demo.services.impl.ServiceImpl;
 
 @Controller
@@ -92,6 +93,69 @@ public class CVBuilderController
 	public String insertEducation(Education education)
 	{
 		return "edu-input";
+	}
+	
+	@PostMapping("/edu")
+	public String insertEducationNew(@Valid Education education, BindingResult result)
+	{
+		if(!result.hasErrors())
+		{
+			//add edu to repo
+			return "redirect:/cvBuilder/edu";
+		}
+		else
+		{
+			return "edu-input";
+		}
+	}
+	
+	@PostMapping("/edu/cont")
+	public String insertEducationAndContinueToLanguages(@Valid Education education, BindingResult result)
+	{
+		if(!result.hasErrors())
+		{
+			//add edu to repo
+			return "redirect:/cvBuilder/languages";
+		}
+		else
+		{
+			return "edu-input";
+		}
+	}
+	
+	@GetMapping("/languages")
+	public String insertLanguages(Languages languages)
+	{
+		return "languages-input";
+	}
+	
+	@PostMapping("/languages")
+	public String insertLanguagesNew(@Valid Languages languages, BindingResult result)
+	{
+		if(!result.hasErrors())
+		{
+			//add edu to repo
+			return "redirect:/cvBuilder/languages";
+		}
+		else
+		{
+			return "languages-input";
+		}
+	}
+	
+	
+	@PostMapping("/languages/cont")
+	public String insertLanguagesAndContinueToCreation(@Valid Languages languages, BindingResult result)
+	{
+		if(!result.hasErrors())
+		{
+			//add edu to repo
+			return "redirect:/cvBuilder/download";
+		}
+		else
+		{
+			return "languages-input";
+		}
 	}
 	
 	@GetMapping("/showdata")//localhost:8080/cvBuilder/showdata

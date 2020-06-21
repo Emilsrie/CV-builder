@@ -66,7 +66,7 @@ public class CVBuilderController
 	{
 		if(!result.hasErrors())
 		{
-			//add jobExp to repo
+			serviceImpl.insertJobExperience(jobExperience);
 			return "redirect:/cvBuilder/job";
 		}
 		else
@@ -80,7 +80,7 @@ public class CVBuilderController
 	{
 		if(!result.hasErrors())
 		{
-			//add jobExp to repo
+			serviceImpl.insertJobExperience(jobExperience);
 			return "redirect:/cvBuilder/edu";
 		}
 		else
@@ -100,7 +100,7 @@ public class CVBuilderController
 	{
 		if(!result.hasErrors())
 		{
-			//add edu to repo
+			serviceImpl.insertEducation(education);
 			return "redirect:/cvBuilder/edu";
 		}
 		else
@@ -114,7 +114,7 @@ public class CVBuilderController
 	{
 		if(!result.hasErrors())
 		{
-			//add edu to repo
+			serviceImpl.insertEducation(education);
 			return "redirect:/cvBuilder/languages";
 		}
 		else
@@ -134,7 +134,7 @@ public class CVBuilderController
 	{
 		if(!result.hasErrors())
 		{
-			//add edu to repo
+			serviceImpl.insertLanguage(languages);
 			return "redirect:/cvBuilder/languages";
 		}
 		else
@@ -149,7 +149,7 @@ public class CVBuilderController
 	{
 		if(!result.hasErrors())
 		{
-			//add edu to repo
+			serviceImpl.insertLanguage(languages);
 			return "redirect:/cvBuilder/download";
 		}
 		else

@@ -64,23 +64,23 @@ public class ServiceImpl implements IService{
 	}
 	
 	@Override 
-	public void insertEducation(String schoolName, String fieldOfStudy, String location, String degree, Date startDate, Date endDate) {
-		Education edu = new Education(schoolName, fieldOfStudy, location, degree, startDate, endDate);
+	public void insertEducation(Education edu) {
 		educationRepo.save(edu);
 	}
-	
+
 	@Override
-	public void insertJobExperience(String jobTitle, String jobInfo, String companyName, String location, Date startDate, Date endDate) {
-		JobExperience jExp = new JobExperience(jobTitle, jobInfo, companyName, location, startDate, endDate);
+	public void insertJobExperience(JobExperience jExp) {
 		jobExperienceRepo.save(jExp);
+		
 	}
-	
-	@Override 
-	public void insertLanguage(String language, String speaking, String understanding, String writing) {
-		Languages lang = new Languages(language, speaking, understanding, writing);
+
+	@Override
+	public void insertLanguage(Languages lang) {
 		languagesRepo.save(lang);
+		
 	}
 	
+
 	
 	
 	

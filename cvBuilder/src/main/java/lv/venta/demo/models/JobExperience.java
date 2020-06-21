@@ -107,6 +107,7 @@ public class JobExperience {
 		return startDate;
 	}
 
+	
 	public void setStartDate(Date startDate) {
 		//Validation. Maybe remake to Calendar
 		this.startDate = startDate;

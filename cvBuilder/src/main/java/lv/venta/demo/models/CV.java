@@ -9,7 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -22,16 +23,16 @@ public class CV {
 	@Column(name = "C_ID")
 	private int c_id;
 
-	@NotNull
+	@NotEmpty
 	@Column(name = "Name")
 	@Size(min = 3, max = 60)
-	@Pattern(regexp = "[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$", message="Invalid letters")
 	private String name;
 	
-	@NotNull
+	@NotEmpty
 	@Column(name = "Surname")
 	@Size(min = 3, max = 60)
-	@Pattern(regexp = "[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$", message="Invalid letters")
 	private String surname;
 	
 	@Column(name = "Background_information")
@@ -57,7 +58,8 @@ public class CV {
 	@Column(name = "Zip_code")
 	private String zip_code;
 	
-	@NotNull
+	@Email
+	@NotEmpty
 	@Column(name = "Email")
 	private String email;
 	
@@ -91,8 +93,6 @@ public class CV {
 		this.zip_code = zip_code;
 		this.email = email;
 	}
-
-	
 
 	public int getC_id() {
 		return c_id;

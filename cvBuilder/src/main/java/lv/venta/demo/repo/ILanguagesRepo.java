@@ -1,5 +1,10 @@
 package lv.venta.demo.repo;
 
-public interface ILanguagesRepo {
+import org.springframework.data.repository.CrudRepository;
+
+import lv.venta.demo.models.Languages;
+
+public interface ILanguagesRepo extends CrudRepository<Languages, Integer>
+{
 
 }

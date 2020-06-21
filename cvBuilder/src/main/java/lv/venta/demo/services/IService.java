@@ -25,9 +25,8 @@ public interface IService {
 	void insertLanguage(Languages lang);
 
 	ArrayList<CV> selectAllCVs();
-	
-	
 
+	void putAllDataInFile();
 	
 
 }

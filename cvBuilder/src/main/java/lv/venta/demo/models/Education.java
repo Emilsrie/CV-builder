@@ -60,8 +60,6 @@ public class Education {
 		this.endDate = endDate;
 	}
 
-	
-
 	public int getE_id() {
 		return e_id;
 	}

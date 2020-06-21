@@ -55,7 +55,7 @@ public class CVBuilderController
 		}
 	}
 	
-	@GetMapping("/job")
+	@GetMapping("/job") //localhost:8080/cvBuilder/job
 	public String insertJobExperienceGet(JobExperience jobExperience)
 	{
 		return "job-input";

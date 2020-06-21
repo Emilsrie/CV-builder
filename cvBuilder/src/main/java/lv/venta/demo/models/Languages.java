@@ -45,8 +45,6 @@ public class Languages {
 		this.writing = writing;
 	}
 
-	
-
 	public int getL_id() {
 		return l_id;
 	}

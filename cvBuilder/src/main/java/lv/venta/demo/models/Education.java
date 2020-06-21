@@ -50,7 +50,7 @@ public class Education {
 	}
 	
 	public Education(String school_name, String field_of_study, String location, String degree, Date startDate,
-			Date endDate, CV cv) {
+			Date endDate) {
 		super();
 		this.school_name = school_name;
 		this.field_of_study = field_of_study;
@@ -58,7 +58,6 @@ public class Education {
 		this.degree = degree;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.cv = cv;
 	}
 
 	

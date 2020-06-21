@@ -4,7 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import lv.venta.demo.models.JobExperience;
 
-public interface IJobExperienceRepo extends CrudRepository<JobExperience, Integer>
-{
+public interface IJobExperienceRepo extends CrudRepository<JobExperience, Integer>{
 
 }

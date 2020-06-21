@@ -129,6 +129,35 @@ public class CVBuilderController
 		return "hello";
 	}
 	
+	@PostMapping("/languages")
+	public String insertLanguagesNew(@Valid Languages languages, BindingResult result)
+	{
+		if(!result.hasErrors())
+		{
+			//add edu to repo
+			return "redirect:/cvBuilder/languages";
+		}
+		else
+		{
+			return "languages-input";
+		}
+	}
+	
+	
+	@PostMapping("/languages/cont")
+	public String insertLanguagesAndContinueToCreation(@Valid Languages languages, BindingResult result)
+	{
+		if(!result.hasErrors())
+		{
+			//add edu to repo
+			return "redirect:/cvBuilder/download";
+		}
+		else
+		{
+			return "languages-input";
+		}
+	}
+	
 	@GetMapping("/showdata")//localhost:8080/cvBuilder/showdata
 	public String show(Model model)
 	{

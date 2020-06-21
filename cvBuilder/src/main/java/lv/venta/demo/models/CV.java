@@ -75,8 +75,7 @@ public class CV {
 			@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$") @Size(min = 3, max = 60) String surname,
 			String background_information, String other_skills,
 			@Pattern(regexp = "^[0-9]*$") @Size(min = 8, max = 8) String phone_number, String address, String city,
-			String province, String zip_code, String email, Collection<JobExperience> allJobExperiences,
-			Collection<Education> allEducations, Collection<Languages> allLanguages) {
+			String province, String zip_code, String email) {
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -88,9 +87,6 @@ public class CV {
 		this.province = province;
 		this.zip_code = zip_code;
 		this.email = email;
-		this.AllJobExperiences = allJobExperiences;
-		this.AllEducations = allEducations;
-		this.AllLanguages = allLanguages;
 	}
 
 	

@@ -14,19 +14,19 @@ import lv.venta.demo.models.CV;
 import lv.venta.demo.services.impl.ServiceImpl;
 
 @Controller
-@RequestMapping("/cvBuilder")
+@RequestMapping("/cvBuilder")//localhost:8080/cvBuilder
 public class CVBuilderController
 {
 	@Autowired
 	ServiceImpl serviceImpl;
 	
-	@GetMapping("/test")
+	@GetMapping("/test")//localhost:8080/cvBuilder/test
 	public String testStuff()
 	{
 		return "hello";
 	}
 	
-	@GetMapping("/build")
+	@GetMapping("/build")//localhost:8080/cvBuilder/build
 	public String makeCVGet(CV cv)
 	{
 		//TODO make input fields bigger
@@ -36,9 +36,12 @@ public class CVBuilderController
 	@PostMapping("/build")
 	public String makeCVPost(@Valid CV cv, BindingResult result)
 	{
+		
+		System.out.println(cv);
+		
 		if(!result.hasErrors())
 		{
-			//make pdf
+			serviceImpl.insertCV(cv);
 			return "redirect:/cvBuilder/download";
 		}
 		else
@@ -47,11 +50,11 @@ public class CVBuilderController
 		}
 	}
 	
-	@GetMapping("/showdata")
+	@GetMapping("/showdata")//localhost:8080/cvBuilder/showdata
 	public String show(Model model)
 	{
-		//model.addAttribute("innerObj", serviceImpl.)
-		return "hello";
+		model.addAttribute("innerObj", serviceImpl.selectAllCVs());
+		return "show";
 	}
 	
 	@GetMapping("/download")

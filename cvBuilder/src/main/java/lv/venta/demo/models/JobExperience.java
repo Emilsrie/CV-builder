@@ -11,6 +11,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 //Job experience for person
 @Entity
 @Table(name="JobExperienceTable")
@@ -32,10 +34,12 @@ public class JobExperience {
 	@Column(name = "Location")
 	private String location;
 	
-	@Column(name = "Startdate")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "StartDate")
 	private Date startDate;
 	
-	@Column(name = "Enddate")
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@Column(name = "EndDate")
 	private Date endDate;
 	
 	@ManyToOne

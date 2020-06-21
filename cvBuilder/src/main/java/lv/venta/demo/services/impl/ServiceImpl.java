@@ -3,9 +3,12 @@ package lv.venta.demo.services.impl;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lv.venta.demo.models.CV;
 import lv.venta.demo.models.Education;
 import lv.venta.demo.models.JobExperience;
 import lv.venta.demo.models.Languages;
@@ -45,6 +48,19 @@ public class ServiceImpl implements IService{
 	@Override
 	public ArrayList<Languages> selectAllLanguages(){
 		return service.selectAllLanguages();
+	}
+
+	@Override
+	public ArrayList<CV> selectAllCVs()
+	{
+		return (ArrayList<CV>) cvRepo.findAll();
+ 	}
+
+	@Override
+	public void insertCV(CV cv)
+	{
+		cvRepo.save(cv);
+		
 	}
 	
 	@Override 

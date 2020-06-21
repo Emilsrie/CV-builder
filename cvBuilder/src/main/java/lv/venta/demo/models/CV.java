@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -20,25 +21,26 @@ public class CV {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "C_ID")
 	private int c_id;
-	
 
+	@NotNull
 	@Column(name = "Name")
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	@Size(min = 3, max = 60)
+	@Pattern(regexp = "[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	private String name;
 	
+	@NotNull
 	@Column(name = "Surname")
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	@Size(min = 3, max = 60)
+	@Pattern(regexp = "[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$")
 	private String surname;
 	
-	@Column(name = "Background_info")
+	@Column(name = "Background_information")
 	private String background_information;
 	
 	@Column(name = "Other_skills")
 	private String other_skills;
 	
-	@Column(name = "Phone")
+	@Column(name = "Phone_number")
 	@Pattern(regexp = "^[0-9]*$")
 	@Size(min = 8, max = 8)
 	private String phone_number;
@@ -52,9 +54,10 @@ public class CV {
 	@Column(name = "Province")
 	private String province;
 	
-	@Column(name = "Zip")
+	@Column(name = "Zip_code")
 	private String zip_code;
 	
+	@NotNull
 	@Column(name = "Email")
 	private String email;
 	
@@ -75,8 +78,7 @@ public class CV {
 			@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$") @Size(min = 3, max = 60) String surname,
 			String background_information, String other_skills,
 			@Pattern(regexp = "^[0-9]*$") @Size(min = 8, max = 8) String phone_number, String address, String city,
-			String province, String zip_code, String email, Collection<JobExperience> allJobExperiences,
-			Collection<Education> allEducations, Collection<Languages> allLanguages) {
+			String province, String zip_code, String email) {
 		super();
 		this.name = name;
 		this.surname = surname;
@@ -88,9 +90,6 @@ public class CV {
 		this.province = province;
 		this.zip_code = zip_code;
 		this.email = email;
-		this.AllJobExperiences = allJobExperiences;
-		this.AllEducations = allEducations;
-		this.AllLanguages = allLanguages;
 	}
 
 	

@@ -1,13 +1,11 @@
 package lv.venta.demo.models;
 
-import java.util.Collection;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -35,12 +33,6 @@ public class CV {
 	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	private String surname;
 	
-	@Column(name = "Background_information")
-	private String background_information;
-	
-	@Column(name = "Other_skills")
-	private String other_skills;
-	
 	@Column(name = "Phone_number")
 	@Pattern(regexp = "^[0-9]*$")
 	@Size(min = 8, max = 8)
@@ -63,25 +55,32 @@ public class CV {
 	@Column(name = "Email")
 	private String email;
 	
+	@Column(name = "Background_information")
+	private String background_information;
+	
+	@Column(name = "Other_skills")
+	private String other_skills;
+	
 	public CV() {
 	}
-		
-	public CV(@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$") @Size(min = 3, max = 60) String name,
-			@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ]+$") @Size(min = 3, max = 60) String surname,
-			String background_information, String other_skills,
+	
+	public CV(
+			@NotEmpty @Size(min = 3, max = 60) @Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") String name,
+			@NotEmpty @Size(min = 3, max = 60) @Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") String surname,
 			@Pattern(regexp = "^[0-9]*$") @Size(min = 8, max = 8) String phone_number, String address, String city,
-			String province, String zip_code, String email) {
+			String province, String zip_code, @Email @NotEmpty String email, String background_information,
+			String other_skills) {
 		super();
 		this.name = name;
 		this.surname = surname;
-		this.background_information = background_information;
-		this.other_skills = other_skills;
 		this.phone_number = phone_number;
 		this.address = address;
 		this.city = city;
 		this.province = province;
 		this.zip_code = zip_code;
 		this.email = email;
+		this.background_information = background_information;
+		this.other_skills = other_skills;
 	}
 
 	public int getC_id() {

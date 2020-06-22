@@ -29,10 +29,6 @@ public class Languages {
 	
 	@Column(name = "Writing")
 	private String writing;
-	
-	@ManyToOne
-	@JoinColumn(name = "C_ID")
-	private CV cv;
 
 	public Languages() {
 	}
@@ -85,17 +81,9 @@ public class Languages {
 		this.writing = writing;
 	}
 
-	public CV getCv() {
-		return cv;
-	}
-
-	public void setCv(CV cv) {
-		this.cv = cv;
-	}
-
 	@Override
 	public String toString() {
 		return "Languages [language=" + language + ", speaking=" + speaking + ", understanding=" + understanding
-				+ ", writing=" + writing + ", cv=" + cv + "]";
+				+ ", writing=" + writing + "]";
 	}
 }

@@ -5,10 +5,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import lv.venta.demo.models.CV;
@@ -128,14 +135,37 @@ public class CVBuilderController
 		return "show";
 	}
 	
-	@GetMapping("/download")
-	public String givePDF(Model model) {
-		return "show";
+	@RequestMapping("/download")///{filename:.+}")
+	public void givePDF(HttpServletRequest request, HttpServletResponse response)//, @PathVariable("filename") String filename)
+	{
+		//this is where the pdf making service is called
+		String dataDirectory = "C:\\PDF";
+		//String dataDirectory = request.getSession().getServletContext().getRealPath("/Files/");
+		System.out.println(dataDirectory);
+		Path file = Paths.get(dataDirectory, "test.pdf");
+		if (Files.exists(file))
+		{
+			response.setContentType("application/pdf");
+			response.addHeader("Content-Disposition", "attachment; filename ="+"test.pdf");
+			try
+			{
+				Files.copy(file, response.getOutputStream());
+				response.getOutputStream().flush();
+			}
+			catch (IOException ex)
+			{
+				ex.printStackTrace();
+			}
+		}
+		//return "show";
 	}
 
+	//used for testing currently obsolete
+	/*
 	@GetMapping("/testfile")
 	public String makeFile() {
 		serviceImpl.putAllDataInFile();
 		return "hello";
 	}
+	*/
 }

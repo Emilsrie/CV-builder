@@ -76,7 +76,7 @@ public class CVBuilderController
 			return "job-input";
 		}
 	}
-	
+	 
 	@GetMapping("/edu") //localhost:8080/cvBuilder/edu
 	public String insertEducation(Education education) {
 		return "edu-input";

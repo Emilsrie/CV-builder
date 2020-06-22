@@ -23,8 +23,11 @@ import lv.venta.demo.repo.IEducationRepo;
 import lv.venta.demo.repo.IJobExperienceRepo;
 import lv.venta.demo.repo.ILanguagesRepo;
 import lv.venta.demo.services.IService;
+
+import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.List;
 import com.itextpdf.text.ListItem;
@@ -102,7 +105,6 @@ public class ServiceImpl implements IService{
 	}
 
 
-	/*
 	@Override
 	public void putAllDataInFile() {
 		try {
@@ -147,7 +149,7 @@ public class ServiceImpl implements IService{
 			e.printStackTrace();
 		}
 	}
-	*/
+	
 
 	@Override
 	public void createPDF() throws IOException {
@@ -158,22 +160,157 @@ public class ServiceImpl implements IService{
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("MyCV.pdf"));
 			document.open();
 			
-			document.add(new Paragraph("It works"));
-			PdfPTable table = new PdfPTable(3);
-			table.setWidthPercentage(105);
-			table.setSpacingBefore(11f);
-			table.setSpacingAfter(11f);
+			/*
+			PdfContentByte canvas = writer.getDirectContent();
+			canvas.rectangle(22, 774, 550, 20);
+			canvas.setColorFill(BaseColor.LIGHT_GRAY);
+		    canvas.fill();
+			*/
 			
-			float[] colWidth = {2f, 2f, 2f};
-			table.setWidths(colWidth);
-			PdfPCell c1 = new PdfPCell(new Paragraph("Column1"));
-			PdfPCell c2 = new PdfPCell(new Paragraph("Column1"));
-			PdfPCell c3 = new PdfPCell(new Paragraph("Column1"));
-			table.addCell(c1);
-			table.addCell(c2);
-			table.addCell(c3);
-			document.add(table);
+			Font nameFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
+			Paragraph nameAndSurname = new Paragraph("Richard Watterson", nameFont);
+			nameAndSurname.setAlignment(Element.ALIGN_CENTER);
+			document.add(nameAndSurname);
+			document.add(Chunk.NEWLINE);
 			
+			Font phoneNrFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
+			Paragraph phoneNumber = new Paragraph("Phone number: " + "22244491", phoneNrFont);
+			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
+			document.add(phoneNumber);
+			
+			Paragraph email = new Paragraph("Email: " + "Watterson@gmail.com", phoneNrFont);
+			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
+			document.add(email);
+			
+			Paragraph address = new Paragraph("Address: " + "Wallstreet 29", phoneNrFont);
+			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
+			document.add(address);
+			
+			
+			Paragraph city = new Paragraph("City: " + "Washington", phoneNrFont);
+			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
+			document.add(city);
+			
+			Paragraph province = new Paragraph("Province: " + "ProvinceNonde", phoneNrFont);
+			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
+			document.add(province);
+			
+			Paragraph zipCode = new Paragraph("ZipCode: " + "UK3312", phoneNrFont);
+			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
+			document.add(zipCode);
+			
+			
+			
+			
+			
+			
+			
+			
+			PdfPTable tableBg = new PdfPTable(1);
+			tableBg.setWidthPercentage(105);
+			tableBg.setSpacingBefore(25f);
+			tableBg.setSpacingAfter(5f);
+			
+			
+			
+			float[] colWidth = {2f};
+			tableBg.setWidths(colWidth);
+			Font bgFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
+			Paragraph backgroundInfo = new Paragraph("Background information", bgFont);
+			PdfPCell c1 = new PdfPCell(backgroundInfo);
+			tableBg.addCell(c1);
+			document.add(tableBg);
+			Font bgTextFont = new Font(Font.FontFamily.TIMES_ROMAN, 12);
+			Paragraph backgroundInfoText = new Paragraph("texttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext.",
+					bgTextFont);
+			document.add(backgroundInfoText);
+			
+			PdfPTable tableOs = new PdfPTable(1);
+			tableOs.setWidthPercentage(105);
+			tableOs.setSpacingBefore(25f);
+			tableOs.setSpacingAfter(5f);
+		
+			tableOs.setWidths(colWidth);
+			Paragraph otherSkills = new Paragraph("Other skills", bgFont);
+			PdfPCell c2 = new PdfPCell(otherSkills);
+			tableOs.addCell(c2);
+			document.add(tableOs);
+			Paragraph osInfoText = new Paragraph("texttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext.",
+					bgTextFont);
+			document.add(osInfoText);
+			
+			
+			PdfPTable tableEdu = new PdfPTable(1);
+			tableEdu.setWidthPercentage(105);
+			tableEdu.setSpacingBefore(25f);
+			tableEdu.setSpacingAfter(5f);
+		
+			tableEdu.setWidths(colWidth);
+			Paragraph education = new Paragraph("Education", bgFont);
+			PdfPCell c3 = new PdfPCell(education);
+			tableEdu.addCell(c3);
+			document.add(tableEdu);
+			Paragraph educationText = new Paragraph("texttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext.",
+					bgTextFont);
+			document.add(educationText);
+			
+			PdfPTable tableJobExp = new PdfPTable(1);
+			tableJobExp.setWidthPercentage(105);
+			tableJobExp.setSpacingBefore(25f);
+			tableJobExp.setSpacingAfter(5f);
+		
+			tableJobExp.setWidths(colWidth);
+			Paragraph jobExp = new Paragraph("Job Experience", bgFont);
+			PdfPCell c4 = new PdfPCell(jobExp);
+			tableJobExp.addCell(c4);
+			document.add(tableJobExp);
+			Paragraph jobExpText = new Paragraph("texttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext.",
+					bgTextFont);
+			document.add(jobExpText);
+			
+			PdfPTable tableLang = new PdfPTable(1);
+			tableLang.setWidthPercentage(105);
+			tableLang.setSpacingBefore(25f);
+			tableLang.setSpacingAfter(5f);
+		
+			tableLang.setWidths(colWidth);
+			Paragraph lang = new Paragraph("Languages", bgFont);
+			PdfPCell c5 = new PdfPCell(lang);
+			tableLang.addCell(c4);
+			document.add(tableLang);
+			Paragraph languagesText = new Paragraph("texttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext"
+					+ "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext.",
+					bgTextFont);
+			document.add(languagesText);
+			
+			
+		
+			
+			/*
 			List orderList = new List(List.ORDERED);
 			orderList.add(new ListItem("Fun"));
 			orderList.add(new ListItem("That"));
@@ -185,7 +322,7 @@ public class ServiceImpl implements IService{
 			unorderList.add(new ListItem("is"));
 			unorderList.add(new ListItem("nice"));
 			document.add(unorderList);
-			
+			*/
 			
 			document.close();
 			writer.close();
@@ -195,9 +332,9 @@ public class ServiceImpl implements IService{
 		}catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
-
 	}
 
+	
 	
 	
 }

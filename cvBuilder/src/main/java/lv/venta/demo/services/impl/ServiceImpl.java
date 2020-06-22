@@ -83,6 +83,7 @@ public class ServiceImpl implements IService{
 	}
 
 
+	/*
 	@Override
 	public void putAllDataInFile() {
 		try {
@@ -127,7 +128,7 @@ public class ServiceImpl implements IService{
 			e.printStackTrace();
 		}
 	}
-	
+	*/
 	
 	
 	

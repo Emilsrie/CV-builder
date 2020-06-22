@@ -177,6 +177,6 @@ public class CV {
 		return "CV [name=" + name + ", surname=" + surname + ", background_information=" + background_information
 				+ ", other_skills=" + other_skills + ", phone_number=" + phone_number + ", address=" + address
 				+ ", city=" + city + ", province=" + province + ", zip_code=" + zip_code + ", email=" + email
-				+ ", allJobExperiences=" + "]";
+				+ ", allJobExperiences=" + "]"; 
 	}
 }

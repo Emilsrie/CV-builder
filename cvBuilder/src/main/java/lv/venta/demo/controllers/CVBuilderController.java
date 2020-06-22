@@ -26,14 +26,9 @@ public class CVBuilderController
 	@Autowired
 	ServiceImpl serviceImpl;
 
-	@GetMapping("/test") //localhost:8080/cvBuilder/test
-	public String testStuff()
-	{
-		return "hello";
-	}
 	
 	@GetMapping("/build") //localhost:8080/cvBuilder/build
-	public String makeCVGet(CV cv)
+	public String makeCVGet(CV cv) 
 	{
 		return "data_input";
 	}

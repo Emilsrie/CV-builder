@@ -1,5 +1,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
-
+	<style>
+		.table-style {
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 1%;
+		}
+		
+		.button, h2{
+			text-align: center;
+		}
+		
+		.align-right {
+			text-align: right;
+		}
+	</style>
+	
 	<head>
 		<meta charset="UTF-8">
 		<title>CV Creation</title>
@@ -7,14 +22,16 @@
 	
 	<body xmlns:th="http://www.thymeleaf.org">
 		<form action="#" th:action="@{/cvBuilder/languages}" th:object="${languages}" method="post">
-			<table>
+			<h2>Language skills</h2>
+			
+			<table class="table-style">
 				<tr>
-					<th>Language</th>
+					<th class="align-right">Language</th>
 					<td><input type = "text" th:field="*{language}"></td>
 				</tr>
 				
-				<tr>
-					<th>Speaking</th>
+				<tr align="center">
+					<th class="align-right">Speaking</th>
 					<td>
 					<select th:field="*{speaking}">
 					<option value="A1">A1</option>
@@ -27,8 +44,8 @@
 					</td>
 				</tr>
 				
-				<tr>
-					<th>Understanding</th>
+				<tr align="center">
+					<th class="align-right">Understanding</th>
 					<td>
 					<select th:field="*{understanding}">
 					<option value="A1">A1</option>
@@ -41,8 +58,8 @@
 					</td>
 				</tr>
 				
-				<tr>
-					<th>Writing</th>
+				<tr align="center">
+					<th class="align-right">Writing</th>
 					<td>
 					<select th:field="*{writing}">
 					<option value="A1">A1</option>
@@ -56,8 +73,11 @@
 				</tr>
 				
 			</table>
-			<input type='submit' name='new' value='save and add new' />
-			<input type='submit' name='cont' value='save and continue' formAction="/cvBuilder/languages/cont"/>
+			
+			<div class="button">
+				<input type='submit' name='new' value='save and add new' />
+				<input type='submit' name='cont' value='save and continue' formAction="/cvBuilder/languages/cont"/>
+			</div>
 		</form>
 	</body>
 </html>

@@ -1,5 +1,20 @@
 <html xmlns:th="http://www.thymeleaf.org">
-
+	<style>
+		.table-style {
+			margin-left: auto;
+			margin-right: auto;
+			margin-bottom: 1%;
+		}
+		
+		.button, h2{
+			text-align: center;
+		}
+		
+		.align-right {
+			text-align: right;
+		}
+	</style>
+	
 	<head>
 		<meta charset="UTF-8">
 		<title>CV Creation</title>
@@ -7,40 +22,43 @@
 	
 	<body xmlns:th="http://www.thymeleaf.org">
 		<form action="#" th:action="@{/cvBuilder/edu}" th:object="${education}" method="post">
-			<table>
+			<h2>Education</h2>
+			<table class="table-style">
 				<tr>
-					<th>Name of educational institution</th>
+					<th class="align-right">Name of educational institution</th>
 					<td><input type = "text" th:field="*{school_name}"></td>
 				</tr>
 				
 				<tr>
-					<th>Field of study</th>
+					<th class="align-right">Field of study</th>
 					<td><input type = "text" th:field="*{field_of_study}"></td>
 				</tr>
 				
 				<tr>
-					<th>Location</th>
+					<th class="align-right">Location</th>
 					<td><input type = "text" th:field="*{location}"></td>
 				</tr>
 				
 				<tr>
-					<th>Degree</th>
+					<th class="align-right">Level of education</th>
 					<td><input type = "text" th:field="*{degree}"></td>
 				</tr>
 				
 				<tr>
-					<th>Start date</th>
+					<th class="align-right">Start date</th>
 					<td><input type = "date" th:field="*{startDate}"></td>
 				</tr>
 				
 				<tr>
-					<th>End date</th>
+					<th class="align-right">End date</th>
 					<td><input type = "date" th:field="*{endDate}"></td>
 				</tr>
-				
 			</table>
-			<input type='submit' name='new' value='save and add new' />
-			<input type='submit' name='cont' value='save and continue' formAction="/cvBuilder/edu/cont"/>
+			
+			<div class="button">
+				<input type='submit' name='new' value='save and add new' />
+				<input type='submit' name='cont' value='save and continue' formAction="/cvBuilder/edu/cont"/>
+			</div>
 		</form>
 	</body>
 </html>

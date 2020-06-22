@@ -160,10 +160,12 @@ public class CVBuilderController
 		//return "show";
 	}
 
-	//used for testing might be obsolete
+	//used for testing currently obsolete
+	/*
 	@GetMapping("/testfile")
 	public String makeFile() {
 		serviceImpl.putAllDataInFile();
 		return "hello";
 	}
+	*/
 }

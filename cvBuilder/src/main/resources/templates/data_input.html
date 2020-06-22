@@ -4,6 +4,12 @@
 		.table-style {
 			margin-left: auto;
 			margin-right: auto;
+			margin-bottom: 1%;
+		}
+		
+		.mandatory-fields {
+			text-align: right;
+			color: red;
 		}
 		
 		.align-right {
@@ -26,36 +32,41 @@
 	
 	<body xmlns:th="http://www.thymeleaf.org">
 		<form action="#" th:action="@{/cvBuilder/build}" th:object="${CV}" method="post">
-			<div>
 			<table class="table-style">
 				<tr>
-					<th class="align-right">Name</th>
+					<th class="mandatory-fields">Name</th>
 					<td><input type = "text" th:field="*{name}"></td>
 					<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
-					<th class="align-right">Surname</th>
+					
+					<th class="mandatory-fields">Surname</th>
 					<td><input type = "text" th:field="*{surname}"></td>
 					<td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></td>
 				</tr>
 				
 				<tr>
-					<th class="align-right">Phone number</th>
+					<th class="mandatory-fields">Phone number</th>
 					<td><input type = "text" th:field="*{phone_number}"></td>
 					<td th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"></td>
-					<th class="align-right">Address</th>
-					<td><input type = "text" th:field="*{address}"></td>
+
+					<th class="mandatory-fields">Email</th>
+					<td><input type = "text" th:field="*{email}"></td>
+					<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
 				</tr>
 				
 				<tr>
+					<th class="align-right">Address</th>
+					<td><input type = "text" th:field="*{address}"></td>
+
 					<th class="align-right">City</th>
 					<td><input type = "text" th:field="*{city}"></td>
-					<th class="align-right">Province</th>
-					<td><input type = "text" th:field="*{province}"></td>
 				</tr>
+				
 				<tr>
 					<th class="align-right">Zip code</th>
 					<td><input type = "text" th:field="*{zip_code}"></td>
-					<th class="align-right">Email</th>
-					<td><input type = "text" th:field="*{email}"></td>
+	
+					<th class="align-right">Province</th>
+					<td><input type = "text" th:field="*{province}"></td>
 				</tr>
 			</table>
 			
@@ -72,7 +83,6 @@
 					<td><textarea th:field="*{other_skills}" rows="8" cols="90" placeholder="Describe your other skills" ></textarea></td>
 				</tr>
 			</table>
-			</div>
 			
 			<div class="button"><input type = "submit"></div>
 		</form>

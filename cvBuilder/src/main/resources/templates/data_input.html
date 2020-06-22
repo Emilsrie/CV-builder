@@ -1,73 +1,18 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
-	
-	<head>
-		<meta charset="UTF-8">
-		<title>CV Creation</title>
-	</head>
-	
-	<body xmlns:th="http://www.thymeleaf.org">
-		<form action="#" th:action="@{/cvBuilder/build}" th:object="${CV}" method="post">
-			<div>
-			<table class="table-style">
-				<tr>
-					<th class="alignright">Name</th>
-					<td><input type = "text" th:field="*{name}"></td>
-					<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
-					<th class="alignright">Surname</th>
-					<td><input type = "text" th:field="*{surname}"></td>
-					<td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></td>
-				</tr>
-				
-				<tr>
-					<th class="alignright">Phone number</th>
-					<td><input type = "text" th:field="*{phone_number}"></td>
-					<td th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"></td>
-					<th class="alignright">Address</th>
-					<td><input type = "text" th:field="*{address}"></td>
-				</tr>
-				
-				<tr>
-					<th class="alignright">City</th>
-					<td><input type = "text" th:field="*{city}"></td>
-					<th class="alignright">Province</th>
-					<td><input type = "text" th:field="*{province}"></td>
-				</tr>
-				<tr>
-					<th class="alignright">Zip code</th>
-					<td><input type = "text" th:field="*{zip_code}"></td>
-					<th class="alignright">Email</th>
-					<td><input type = "text" th:field="*{email}"></td>
-				</tr>
-			</table>
-			
-			<table class="table-style">
-				<tr>
-					<th class="alignright">Background information</th>
-					<td><textarea th:field="*{background_information}" rows="8" cols="90" placeholder="Describe yourself" ></textarea></td>
-					<!--<td><input type = "text" th:field="*{background_information}"></td> -->
-				</tr>
-				
-				<tr>
-					<th class="alignright">Other skills</th>
-					<td><textarea th:field="*{other_skills}" rows="8" cols="90" placeholder="Describe your other skills" ></textarea></td>
-				</tr>
-			</table>
-			</div>
-			
-			<div class="button"><input type = "submit"></div>
-		</form>
-	</body>
-	
-	
-
 	<style>
 		.table-style {
 			margin-left: auto;
 			margin-right: auto;
+			margin-bottom: 1%;
 		}
 		
-		.alignright {
+		.mandatory-fields {
+			text-align: right;
+			color: red;
+		}
+		
+		.align-right {
 			text-align: right;
 		}
 		
@@ -76,8 +21,70 @@
 		}
 		
 		.button {
-			text-align: right;
-			margin-right: 28.5%;
+			text-align: center;
 		}
 	</style>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>CV Creation</title>
+	</head>
+	
+	<body xmlns:th="http://www.thymeleaf.org">
+		<form action="#" th:action="@{/cvBuilder/build}" th:object="${CV}" method="post">
+			<table class="table-style">
+				<tr>
+					<th class="mandatory-fields">Name</th>
+					<td><input type = "text" th:field="*{name}"></td>
+					<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+					
+					<th class="mandatory-fields">Surname</th>
+					<td><input type = "text" th:field="*{surname}"></td>
+					<td th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></td>
+				</tr>
+				
+				<tr>
+					<th class="mandatory-fields">Phone number</th>
+					<td><input type = "text" th:field="*{phone_number}"></td>
+					<td th:if="${#fields.hasErrors('phone_number')}" th:errors="*{phone_number}"></td>
+
+					<th class="mandatory-fields">Email</th>
+					<td><input type = "text" th:field="*{email}"></td>
+					<td th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></td>
+				</tr>
+				
+				<tr>
+					<th class="align-right">Address</th>
+					<td><input type = "text" th:field="*{address}"></td>
+
+					<th class="align-right">City</th>
+					<td><input type = "text" th:field="*{city}"></td>
+				</tr>
+				
+				<tr>
+					<th class="align-right">Zip code</th>
+					<td><input type = "text" th:field="*{zip_code}"></td>
+	
+					<th class="align-right">Province</th>
+					<td><input type = "text" th:field="*{province}"></td>
+				</tr>
+			</table>
+			
+			
+			<table class="table-style">
+				<tr><th>Background information</th></tr>
+				<tr>
+					<td><textarea th:field="*{background_information}" rows="8" cols="90" placeholder="Describe yourself" ></textarea></td>
+					<!--<td><input type = "text" th:field="*{background_information}"></td> -->
+				</tr>
+				
+				<tr><th>Other skills</th></tr> 
+				<tr>
+					<td><textarea th:field="*{other_skills}" rows="8" cols="90" placeholder="Describe your other skills" ></textarea></td>
+				</tr>
+			</table>
+			
+			<div class="button"><input type = "submit"></div>
+		</form>
+	</body>
 </html>

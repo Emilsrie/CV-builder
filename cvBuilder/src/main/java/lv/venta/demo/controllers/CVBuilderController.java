@@ -133,7 +133,6 @@ public class CVBuilderController
 		return "show";
 	}
 
-	
 	@GetMapping("/testfile")
 	public String makeFile() {
 		serviceImpl.putAllDataInFile();

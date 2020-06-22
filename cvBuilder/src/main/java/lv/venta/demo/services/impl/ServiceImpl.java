@@ -102,6 +102,7 @@ public class ServiceImpl implements IService{
 	}
 
 
+	/*
 	@Override
 	public void putAllDataInFile() {
 		try {
@@ -146,7 +147,7 @@ public class ServiceImpl implements IService{
 			e.printStackTrace();
 		}
 	}
-	
+	*/
 
 	@Override
 	public void createPDF() throws IOException {
@@ -196,10 +197,7 @@ public class ServiceImpl implements IService{
 		}
 
 	}
-	
-	
-	
-	
+
 	
 	
 }

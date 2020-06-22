@@ -27,9 +27,10 @@ public interface IService {
 
 	ArrayList<CV> selectAllCVs();
 
+	/*
 	void putAllDataInFile();
+	*/
 
 	void createPDF() throws IOException;
-	
 
 }

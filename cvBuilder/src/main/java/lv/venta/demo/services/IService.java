@@ -1,5 +1,6 @@
 package lv.venta.demo.services;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -27,6 +28,8 @@ public interface IService {
 	ArrayList<CV> selectAllCVs();
 
 	void putAllDataInFile();
+
+	void createPDF() throws IOException;
 	
 
 }

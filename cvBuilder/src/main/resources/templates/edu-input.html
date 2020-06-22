@@ -23,7 +23,6 @@
 	<body xmlns:th="http://www.thymeleaf.org">
 		<form action="#" th:action="@{/cvBuilder/edu}" th:object="${education}" method="post">
 			<h2>Education</h2>
-			
 			<table class="table-style">
 				<tr>
 					<th class="align-right">Name of educational institution</th>
@@ -41,7 +40,7 @@
 				</tr>
 				
 				<tr>
-					<th class="align-right">Degree</th>
+					<th class="align-right">Level of education</th>
 					<td><input type = "text" th:field="*{degree}"></td>
 				</tr>
 				

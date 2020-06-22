@@ -102,7 +102,7 @@ public class CVBuilderController
 		}
 	}
 	
-	@GetMapping("/languages")
+	@GetMapping("/languages") //localhost:8080/cvBuilder/languages
 	public String insertLanguages(Languages languages) {
 		return "languages-input";
 	}
@@ -128,19 +128,21 @@ public class CVBuilderController
 		}
 	}
 	
+	/* obsolete
 	@GetMapping("/showdata") //localhost:8080/cvBuilder/showdata
 	public String show(Model model) {
 		model.addAttribute("innerObj", serviceImpl.selectAllCVs());
 		return "show";
 	}
+	*/
 	
-	@RequestMapping("/download")///{filename:.+}")
+	@RequestMapping("/download") ////localhost:8080/cvBuilder/download
 	public void givePDF(HttpServletRequest request, HttpServletResponse response)//, @PathVariable("filename") String filename)
 	{
 		//this is where the pdf making service is called
 		String dataDirectory = "C:\\PDF";
 		//String dataDirectory = request.getSession().getServletContext().getRealPath("/Files/");
-		System.out.println(dataDirectory);
+		//System.out.println(dataDirectory);
 		Path file = Paths.get(dataDirectory, "test.pdf");
 		if (Files.exists(file))
 		{
@@ -160,11 +162,11 @@ public class CVBuilderController
 	}
 
 	//used for testing currently obsolete
-	/*
-	@GetMapping("/testfile")
-	public String makeFile() {
-		serviceImpl.putAllDataInFile();
+	
+	@GetMapping("/test")
+	public String makeFile() throws IOException {
+		serviceImpl.createPDF();;
 		return "hello";
 	}
-	*/
+	
 }

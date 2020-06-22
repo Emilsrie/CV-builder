@@ -41,10 +41,6 @@ public class Education {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "Enddate")
 	private Date endDate;
-	
-	@ManyToOne
-	@JoinColumn(name = "C_ID")
-	private CV cv;
 
 	public Education() {
 	}
@@ -118,17 +114,9 @@ public class Education {
 		this.endDate = endDate;
 	}
 
-	public CV getCv() {
-		return cv;
-	}
-
-	public void setCv(CV cv) {
-		this.cv = cv;
-	}
-
 	@Override
 	public String toString() {
 		return "Education [school_name=" + school_name + ", field_of_study=" + field_of_study + ", location=" + location
-				+ ", degree=" + degree + ", startDate=" + startDate + ", endDate=" + endDate + ", cv=" + cv + "]";
+				+ ", degree=" + degree + ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
 }

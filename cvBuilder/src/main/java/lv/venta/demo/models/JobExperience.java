@@ -43,10 +43,6 @@ public class JobExperience {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Column(name = "EndDate")
 	private Date endDate;
-	
-	@ManyToOne
-	@JoinColumn(name = "C_ID")
-	private CV cv;
 
 	public JobExperience() {
 	}
@@ -122,17 +118,9 @@ public class JobExperience {
 		this.endDate = endDate;
 	}
 
-	public CV getCv() {
-		return cv;
-	}
-
-	public void setCv(CV cv) {
-		this.cv = cv;
-	}
-
 	@Override
 	public String toString() {
 		return "JobExperience [job_title=" + job_title + ", job_info=" + job_info + ", company_name=" + company_name
-				+ ", location=" + location + ", startDate=" + startDate + ", endDate=" + endDate + ", cv=" + cv + "]";
+				+ ", location=" + location + ", startDate=" + startDate + ", endDate=" + endDate + "]";
 	}
 }

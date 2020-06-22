@@ -28,148 +28,114 @@ public class CVBuilderController
 
 	
 	@GetMapping("/build") //localhost:8080/cvBuilder/build
-	public String makeCVGet(CV cv) 
-	{
+	public String makeCVGet(CV cv) {
 		return "data_input";
 	}
 	
 	@PostMapping("/build")
-	public String makeCVPost(@Valid CV cv, BindingResult result)
-	{
+	public String makeCVPost(@Valid CV cv, BindingResult result) {
 		
 		System.out.println(cv);
 		
-		if(!result.hasErrors())
-		{
+		if(!result.hasErrors()) {
 			serviceImpl.insertCV(cv);
 			return "redirect:/cvBuilder/job";
 		}
-		else
-		{
+		else {
 			return "data_input";
 		}
 	}
 	
 	@GetMapping("/job") //localhost:8080/cvBuilder/job
-	public String insertJobExperienceGet(JobExperience jobExperience)
-	{
+	public String insertJobExperienceGet(JobExperience jobExperience) {
 		return "job-input";
 	}
 	
 	@PostMapping("/job")
-	public String insertJobExperiencePost(@Valid JobExperience jobExperience, BindingResult result)
-	{
-		if(!result.hasErrors())
-		{
+	public String insertJobExperiencePost(@Valid JobExperience jobExperience, BindingResult result) {
+		if(!result.hasErrors()) {
 			serviceImpl.insertJobExperience(jobExperience);
 			return "redirect:/cvBuilder/job";
-		}
-		else
-		{
+		} else {
 			return "job-input";
 		}
 	}
 	
 	@PostMapping("/job/cont")
-	public String insertJobAndContinuetoEducation(@Valid JobExperience jobExperience, BindingResult result)
-	{
-		if(!result.hasErrors())
-		{
+	public String insertJobAndContinuetoEducation(@Valid JobExperience jobExperience, BindingResult result) {
+		if(!result.hasErrors()) {
 			serviceImpl.insertJobExperience(jobExperience);
 			return "redirect:/cvBuilder/edu";
-		}
-		else
-		{
+		} else {
 			return "job-input";
 		}
 	}
 	
 	@GetMapping("/edu") //localhost:8080/cvBuilder/edu
-	public String insertEducation(Education education)
-	{
+	public String insertEducation(Education education) {
 		return "edu-input";
 	}
 	
 	@PostMapping("/edu")
-	public String insertEducationNew(@Valid Education education, BindingResult result)
-	{
-		if(!result.hasErrors())
-		{
+	public String insertEducationNew(@Valid Education education, BindingResult result) {
+		if(!result.hasErrors()) {
 			serviceImpl.insertEducation(education);
 			return "redirect:/cvBuilder/edu";
-		}
-		else
-		{
+		} else {
 			return "edu-input";
 		}
 	}
 	
 	@PostMapping("/edu/cont")
-	public String insertEducationAndContinueToLanguages(@Valid Education education, BindingResult result)
-	{
-		if(!result.hasErrors())
-		{
+	public String insertEducationAndContinueToLanguages(@Valid Education education, BindingResult result) {
+		if(!result.hasErrors()) {
 			serviceImpl.insertEducation(education);
 			return "redirect:/cvBuilder/languages";
-		}
-		else
-		{
+		} else {
 			return "edu-input";
 		}
 	}
 	
 	@GetMapping("/languages")
-	public String insertLanguages(Languages languages)
-	{
+	public String insertLanguages(Languages languages) {
 		return "languages-input";
 	}
 	
 	@PostMapping("/languages")
-	public String insertLanguagesNew(@Valid Languages languages, BindingResult result)
-	{
-		if(!result.hasErrors())
-		{
+	public String insertLanguagesNew(@Valid Languages languages, BindingResult result) {
+		if(!result.hasErrors()) {
 			serviceImpl.insertLanguage(languages);
 			return "redirect:/cvBuilder/languages";
-		}
-		else
-		{
+		} else {
 			return "languages-input";
 		}
 	}
 	
 	
 	@PostMapping("/languages/cont")
-	public String insertLanguagesAndContinueToCreation(@Valid Languages languages, BindingResult result)
-	{
-		if(!result.hasErrors())
-		{
+	public String insertLanguagesAndContinueToCreation(@Valid Languages languages, BindingResult result) {
+		if(!result.hasErrors()) {
 			serviceImpl.insertLanguage(languages);
 			return "redirect:/cvBuilder/download";
-		}
-		else
-		{
+		} else {
 			return "languages-input";
 		}
 	}
 	
 	@GetMapping("/showdata") //localhost:8080/cvBuilder/showdata
-	public String show(Model model)
-	{
+	public String show(Model model) {
 		model.addAttribute("innerObj", serviceImpl.selectAllCVs());
 		return "show";
 	}
 	
 	@GetMapping("/download")
-	public String givePDF(Model model)
-	{
+	public String givePDF(Model model) {
 		return "show";
 	}
 
 	
 	@GetMapping("/testfile")
-	public String makeFile()
-	{
+	public String makeFile() {
 		serviceImpl.putAllDataInFile();
 		return "hello";
 	}

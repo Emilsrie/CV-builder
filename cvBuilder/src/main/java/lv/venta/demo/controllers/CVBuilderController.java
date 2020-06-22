@@ -18,7 +18,7 @@ import lv.venta.demo.models.JobExperience;
 import lv.venta.demo.models.Languages;
 import lv.venta.demo.services.impl.ServiceImpl;
 
-
+//http://localhost:8080/h2-console
 //jdbc:h2:file:~/cv
 @Controller
 @RequestMapping("/cvBuilder") //localhost:8080/cvBuilder
@@ -26,7 +26,7 @@ public class CVBuilderController
 {
 	@Autowired
 	ServiceImpl serviceImpl;
-	
+
 	@GetMapping("/test") //localhost:8080/cvBuilder/test
 	public String testStuff()
 	{

@@ -63,15 +63,6 @@ public class CV {
 	@Column(name = "Email")
 	private String email;
 	
-	@OneToMany(mappedBy = "cv")
-	private Collection<JobExperience> AllJobExperiences;
-	
-	@OneToMany(mappedBy = "cv")
-	private Collection<Education> AllEducations;
-	
-	@OneToMany(mappedBy = "cv")
-	private Collection<Languages> AllLanguages;
-	
 	public CV() {
 	}
 		
@@ -99,30 +90,6 @@ public class CV {
 
 	public void setC_id(int c_id) {
 		this.c_id = c_id;
-	}
-
-	public Collection<JobExperience> getAllJobExperiences() {
-		return AllJobExperiences;
-	}
-
-	public void setAllJobExperiences(Collection<JobExperience> allJobExperiences) {
-		this.AllJobExperiences = allJobExperiences;
-	}
-
-	public Collection<Education> getAllEducations() {
-		return AllEducations;
-	}
-
-	public void setAllEducations(Collection<Education> allEducations) {
-		this.AllEducations = allEducations;
-	}
-
-	public Collection<Languages> getAllLanguages() {
-		return AllLanguages;
-	}
-
-	public void setAllLanguages(Collection<Languages> allLanguages) {
-		this.AllLanguages = allLanguages;
 	}
 
 	public String getName() {
@@ -210,7 +177,6 @@ public class CV {
 		return "CV [name=" + name + ", surname=" + surname + ", background_information=" + background_information
 				+ ", other_skills=" + other_skills + ", phone_number=" + phone_number + ", address=" + address
 				+ ", city=" + city + ", province=" + province + ", zip_code=" + zip_code + ", email=" + email
-				+ ", allJobExperiences=" + AllJobExperiences + ", allEducations=" + AllEducations + ", allLanguages="
-				+ AllLanguages + "]";
+				+ ", allJobExperiences=" + "]";
 	}
 }

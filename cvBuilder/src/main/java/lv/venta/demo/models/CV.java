@@ -33,6 +33,7 @@ public class CV {
 	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	private String surname;
 	
+	@NotEmpty
 	@Column(name = "Phone_number")
 	@Pattern(regexp = "^[0-9]*$")
 	@Size(min = 8, max = 8)
@@ -67,7 +68,7 @@ public class CV {
 	public CV(
 			@NotEmpty @Size(min = 3, max = 60) @Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") String name,
 			@NotEmpty @Size(min = 3, max = 60) @Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") String surname,
-			@Pattern(regexp = "^[0-9]*$") @Size(min = 8, max = 8) String phone_number, String address, String city,
+			@NotEmpty @Pattern(regexp = "^[0-9]*$") @Size(min = 8, max = 8) String phone_number, String address, String city,
 			String province, String zip_code, @Email @NotEmpty String email, String background_information,
 			String other_skills) {
 		super();

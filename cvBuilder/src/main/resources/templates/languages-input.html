@@ -26,8 +26,9 @@
 			
 			<table class="table-style">
 				<tr>
-					<th class="align-right">Language</th>
+					<th class="align-right">Language *</th>
 					<td><input type = "text" th:field="*{language}"></td>
+					<td th:if="${#fields.hasErrors('language')}" th:errors="*{language}"></td>
 				</tr>
 				
 				<tr align="center">

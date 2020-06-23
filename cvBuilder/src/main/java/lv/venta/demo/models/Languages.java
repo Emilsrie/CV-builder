@@ -5,9 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 //Language skills
 @Entity
@@ -18,6 +18,8 @@ public class Languages {
 	@Column(name = "L_ID")
 	private int l_id;
 	
+	@NotEmpty
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	@Column(name = "Language")
 	private String language;
 	
@@ -33,7 +35,9 @@ public class Languages {
 	public Languages() {
 	}
 	
-	public Languages(String language, String speaking, String understanding, String writing) {
+	public Languages(
+			@NotEmpty @Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") String language,
+			String speaking, String understanding, String writing) {
 		super();
 		this.language = language;
 		this.speaking = speaking;

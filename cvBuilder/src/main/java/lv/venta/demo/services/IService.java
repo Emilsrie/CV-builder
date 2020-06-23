@@ -26,11 +26,14 @@ public interface IService {
 	void insertLanguage(Languages lang);
 
 	ArrayList<CV> selectAllCVs();
+	
+	void clearEducation();
+	
+	void clearJobs();
+	
+	void clearLanguages();
+	
+	void clearCV();
 
-	/*
-	void putAllDataInFile();
-	*/
-
-	void createPDF(int id) throws IOException;
-
+	void createPDF() throws IOException;
 }

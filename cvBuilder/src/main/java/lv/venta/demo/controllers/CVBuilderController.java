@@ -122,7 +122,7 @@ public class CVBuilderController
 	public String insertLanguagesAndContinueToCreation(@Valid Languages languages, BindingResult result) {
 		if(!result.hasErrors()) {
 			serviceImpl.insertLanguage(languages);
-			return "redirect:/cvBuilder/download";
+			return "redirect:/cvBuilder/done";
 		} else {
 			return "languages-input";
 		}
@@ -136,18 +136,24 @@ public class CVBuilderController
 	}
 	*/
 	
-	@RequestMapping("/download") ////localhost:8080/cvBuilder/download
-	public void givePDF(HttpServletRequest request, HttpServletResponse response)//, @PathVariable("filename") String filename)
+	@GetMapping("/done")
+	public String sayCVIsDone() throws IOException
 	{
-		//this is where the pdf making service is called
+		serviceImpl.createPDF();
+		return "download";
+	}
+	
+	@RequestMapping("/download") ////localhost:8080/cvBuilder/download
+	public void givePDF(HttpServletRequest request, HttpServletResponse response)
+	{
 		String dataDirectory = "C:\\PDF";
 		//String dataDirectory = request.getSession().getServletContext().getRealPath("/Files/");
 		//System.out.println(dataDirectory);
-		Path file = Paths.get(dataDirectory, "test.pdf");
+		Path file = Paths.get(dataDirectory, "MyCv.pdf");
 		if (Files.exists(file))
 		{
 			response.setContentType("application/pdf");
-			response.addHeader("Content-Disposition", "attachment; filename ="+"test.pdf");
+			response.addHeader("Content-Disposition", "attachment; filename ="+"MyCv.pdf");
 			try
 			{
 				Files.copy(file, response.getOutputStream());
@@ -158,15 +164,16 @@ public class CVBuilderController
 				ex.printStackTrace();
 			}
 		}
-		//return "show";
+		//return "download";
 	}
 
 	//used for testing currently obsolete
 	
+	/*
 	@GetMapping("/test")
 	public String makeFile() throws IOException {
-		serviceImpl.createPDF();;
+		serviceImpl.createPDF();
 		return "hello";
 	}
-	
+	*/
 }

@@ -168,15 +168,14 @@ public class ServiceImpl implements IService{
 		ArrayList<JobExperience> allJobExperiences = (ArrayList<JobExperience>) jobExperienceRepo.findAll();
 		ArrayList<Languages> allLanguages = (ArrayList<Languages>) languagesRepo.findAll();
     
-	  public void createPDF() throws IOException {
-      if(!Files.isDirectory(Paths.get("C:\\PDF")))
-      {
-        System.out.println("didnt find");
-        new File("C:\\PDF").mkdirs();
-      }
+		  if(!Files.isDirectory(Paths.get("C:\\PDF")))
+		  {
+			  System.out.println("didnt find");
+			  new File("C:\\PDF").mkdirs();
+		  }
 		
-		Document document = new Document();
-		try {
+		  Document document = new Document();
+		  try {
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("C:\\PDF\\MyCV.pdf"));
 			document.open();
 			

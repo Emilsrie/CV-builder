@@ -139,7 +139,7 @@ public class CVBuilderController
 	@GetMapping("/done")
 	public String sayCVIsDone() throws IOException
 	{
-		serviceImpl.createPDF();
+		serviceImpl.createPDF(1);
 		return "download";
 	}
 	

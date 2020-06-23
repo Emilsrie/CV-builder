@@ -56,9 +56,9 @@ public class ServiceImpl implements IService{
 	@Autowired
 	ILanguagesRepo languagesRepo;
 
-	ArrayList<Education> allEducations = (ArrayList<Education>) educationRepo.findAll();
-	ArrayList<JobExperience> allJobExperiences = (ArrayList<JobExperience>) jobExperienceRepo.findAll();
-	ArrayList<Languages> allLanguages = (ArrayList<Languages>) languagesRepo.findAll();
+	//ArrayList<Education> allEducations = (ArrayList<Education>) educationRepo.findAll();
+	//ArrayList<JobExperience> allJobExperiences = (ArrayList<JobExperience>) jobExperienceRepo.findAll();
+	//ArrayList<Languages> allLanguages = (ArrayList<Languages>) languagesRepo.findAll();
 	
 	
 	

@@ -165,7 +165,7 @@ public class CVBuilderController
 	
 	@GetMapping("/test")
 	public String makeFile() throws IOException {
-		serviceImpl.createPDF();;
+		serviceImpl.createPDF(1);
 		return "hello";
 	}
 	

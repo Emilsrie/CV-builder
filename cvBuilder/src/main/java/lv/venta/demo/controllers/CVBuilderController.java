@@ -139,7 +139,11 @@ public class CVBuilderController
 	@GetMapping("/done")
 	public String sayCVIsDone() throws IOException
 	{
-		serviceImpl.createPDF(1);
+		serviceImpl.createPDF();
+		serviceImpl.clearEducation();
+		serviceImpl.clearJobs();
+		serviceImpl.clearLanguages();
+		serviceImpl.clearCV();
 		return "download";
 	}
 	

@@ -43,8 +43,6 @@ import com.itextpdf.text.pdf.PdfWriter;
 @Service
 public class ServiceImpl implements IService{
 
-
-	
 	
 	@Autowired
 	ICVRepo cvRepo;
@@ -57,6 +55,13 @@ public class ServiceImpl implements IService{
 	
 	@Autowired
 	ILanguagesRepo languagesRepo;
+
+	ArrayList<Education> allEducations = (ArrayList<Education>) educationRepo.findAll();
+	ArrayList<JobExperience> allJobExperiences = (ArrayList<JobExperience>) jobExperienceRepo.findAll();
+	ArrayList<Languages> allLanguages = (ArrayList<Languages>) languagesRepo.findAll();
+	
+	
+	
 	
 	
 	@Override
@@ -104,7 +109,7 @@ public class ServiceImpl implements IService{
 		
 	}
 
-
+	/*
 	@Override
 	public void putAllDataInFile() {
 		try {
@@ -149,7 +154,7 @@ public class ServiceImpl implements IService{
 			e.printStackTrace();
 		}
 	}
-	
+	*/
 
 	@Override
 	public void createPDF(int id) throws IOException {

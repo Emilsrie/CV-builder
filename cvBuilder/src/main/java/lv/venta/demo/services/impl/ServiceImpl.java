@@ -31,9 +31,6 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-
-
-
 @Service
 public class ServiceImpl implements IService{
 

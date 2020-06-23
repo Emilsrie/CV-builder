@@ -31,6 +31,6 @@ public interface IService {
 	void putAllDataInFile();
 	*/
 
-	void createPDF() throws IOException;
+	void createPDF(int id) throws IOException;
 
 }

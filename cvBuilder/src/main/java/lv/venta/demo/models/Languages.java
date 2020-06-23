@@ -22,7 +22,6 @@ public class Languages {
 	@NotEmpty
 	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	@Column(name = "Language")
-	@Size(min = 1, max = 60)
 	private String language;
 	
 	@Column(name = "Speaking")

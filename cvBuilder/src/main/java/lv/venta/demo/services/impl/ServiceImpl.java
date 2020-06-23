@@ -106,53 +106,6 @@ public class ServiceImpl implements IService{
 
 
 
-	/*
-	@Override
-	public void putAllDataInFile() {
-		try {
-		File myfile = new File("testfile.txt");
-		
-			if(myfile.createNewFile())
-			{
-				System.out.println("File created: " + myfile.getName());
-			}
-			else
-			{
-				System.out.println("already exists");
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try
-		{
-			FileWriter myWriter = new FileWriter("testfile.txt");
-			for(CV c: cvRepo.findAll())
-			{
-				myWriter.write(c.toString());
-			}
-			for(JobExperience j: jobExperienceRepo.findAll())
-			{
-				myWriter.write(j.toString());
-			}
-			for(Education e: educationRepo.findAll())
-			{
-				myWriter.write(e.toString());
-			}
-			for(Languages l: languagesRepo.findAll())
-			{
-				myWriter.write(l.toString());
-			}
-			myWriter.close();
-		}catch (IOException e)
-		{
-			System.out.println("error");
-			e.printStackTrace();
-		}
-	}
-	*/
-
 	@Override
 	public void createPDF() throws IOException {
 		

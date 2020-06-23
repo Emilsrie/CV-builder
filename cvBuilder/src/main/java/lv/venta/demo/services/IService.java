@@ -35,9 +35,5 @@ public interface IService {
 	
 	void clearCV();
 
-	/*
-	void putAllDataInFile();
-	*/
-
 	void createPDF() throws IOException;
 }

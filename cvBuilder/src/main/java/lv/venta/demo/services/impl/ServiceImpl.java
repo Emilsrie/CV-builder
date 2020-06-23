@@ -168,7 +168,6 @@ public class ServiceImpl implements IService{
 		ArrayList<JobExperience> allJobExperiences = (ArrayList<JobExperience>) jobExperienceRepo.findAll();
 		ArrayList<Languages> allLanguages = (ArrayList<Languages>) languagesRepo.findAll();
     
-	  public void createPDF() throws IOException {
       if(!Files.isDirectory(Paths.get("C:\\PDF")))
       {
         System.out.println("didnt find");

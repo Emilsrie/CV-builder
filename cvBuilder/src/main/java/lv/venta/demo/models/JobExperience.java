@@ -118,9 +118,17 @@ public class JobExperience {
 		this.endDate = endDate;
 	}
 
+	/*
 	@Override
 	public String toString() {
 		return "JobExperience [job_title=" + job_title + ", job_info=" + job_info + ", company_name=" + company_name
 				+ ", location=" + location + ", startDate=" + startDate + ", endDate=" + endDate + "]";
+	}
+    */
+	
+	@Override
+	public String toString() {
+		return "Job title: " + job_title + "\n" + "Job info: " + job_info + "\n" + "Company name: " + company_name + 
+				"\n" + "Location: " + location + "\n" + "Start date: " + startDate + "\n" + "End date: " + endDate;
 	}
 }

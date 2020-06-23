@@ -37,7 +37,9 @@ public class Languages {
 	public Languages() {
 	}
 	
-	public Languages(String language, String speaking, String understanding, String writing) {
+	public Languages(
+			@NotEmpty @Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") @Size(min = 1, max = 60) String language,
+			String speaking, String understanding, String writing) {
 		super();
 		this.language = language;
 		this.speaking = speaking;

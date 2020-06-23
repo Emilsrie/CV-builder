@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -155,11 +158,15 @@ public class ServiceImpl implements IService{
 
 	@Override
 	public void createPDF() throws IOException {
-		
+		if(!Files.isDirectory(Paths.get("C:\\PDF")))
+		{
+			System.out.println("didnt find");
+			new File("C:\\PDF").mkdirs();
+		}
 		
 		Document document = new Document();
 		try {
-			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("MyCV.pdf"));
+			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("C:\\PDF\\MyCV.pdf"));
 			document.open();
 			
 			/*

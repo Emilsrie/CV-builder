@@ -154,8 +154,9 @@ public class ServiceImpl implements IService{
 	*/
 
 	@Override
-	public void createPDF(int id) throws IOException {
+	public void createPDF() throws IOException {
 		
+		ArrayList<CV> cv = (ArrayList<CV>) cvRepo.findAll();
 		ArrayList<Education> allEducations = (ArrayList<Education>) educationRepo.findAll();
 		ArrayList<JobExperience> allJobExperiences = (ArrayList<JobExperience>) jobExperienceRepo.findAll();
 		ArrayList<Languages> allLanguages = (ArrayList<Languages>) languagesRepo.findAll();
@@ -179,40 +180,40 @@ public class ServiceImpl implements IService{
 			*/
 			
 			Font nameFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
-			Paragraph nameAndSurname = new Paragraph(cvRepo.findById(id).get().getName() + " " + cvRepo.findById(id).get().getSurname(), nameFont);
+			Paragraph nameAndSurname = new Paragraph(cv.get(0).getName() + " " + cv.get(0).getSurname(), nameFont);
 			nameAndSurname.setAlignment(Element.ALIGN_CENTER);
 			document.add(nameAndSurname);
 			document.add(Chunk.NEWLINE);
 			
 			Font phoneNrFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
-			Paragraph phoneNumber = new Paragraph("Phone number: " + cvRepo.findById(id).get().getPhone_number(), phoneNrFont);
+			Paragraph phoneNumber = new Paragraph("Phone number: " + cv.get(0).getPhone_number(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(phoneNumber);
 			
-			Paragraph email = new Paragraph("Email: " + cvRepo.findById(id).get().getEmail(), phoneNrFont);
+			Paragraph email = new Paragraph("Email: " + cv.get(0).getEmail(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(email);
 			
-			if(cvRepo.findById(id).get().getAddress() != null) {
-				Paragraph address = new Paragraph("Address: " + cvRepo.findById(id).get().getAddress(), phoneNrFont);
+			if(cv.get(0).getAddress() != null) {
+				Paragraph address = new Paragraph("Address: " + cv.get(0).getAddress(), phoneNrFont);
 				nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 				document.add(address);
 			}
 			
-			if(cvRepo.findById(id).get().getCity() != null) {
-				Paragraph city = new Paragraph("City: " + cvRepo.findById(id).get().getCity(), phoneNrFont);
+			if(cv.get(0).getCity() != null) {
+				Paragraph city = new Paragraph("City: " + cv.get(0).getCity(), phoneNrFont);
 				nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 				document.add(city);
 			}
 			
-			if(cvRepo.findById(id).get().getProvince() != null) {
-			Paragraph province = new Paragraph("Province: " + cvRepo.findById(id).get().getProvince(), phoneNrFont);
+			if(cv.get(0).getProvince() != null) {
+			Paragraph province = new Paragraph("Province: " + cv.get(0).getProvince(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(province);
 			}
 			
-			if(cvRepo.findById(id).get().getZip_code() != null) {
-			Paragraph zipCode = new Paragraph("ZipCode: " + cvRepo.findById(id).get().getZip_code(), phoneNrFont);
+			if(cv.get(0).getZip_code() != null) {
+			Paragraph zipCode = new Paragraph("ZipCode: " + cv.get(0).getZip_code(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(zipCode);
 			}
@@ -226,7 +227,7 @@ public class ServiceImpl implements IService{
 			Font bgFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
 			Font bgTextFont = new Font(Font.FontFamily.TIMES_ROMAN, 12);
 			
-			if(cvRepo.findById(id).get().getBackground_information().length() > 0) {
+			if(cv.get(0).getBackground_information().length() > 0) {
 				PdfPTable tableBg = new PdfPTable(1);
 				tableBg.setWidthPercentage(105);
 				tableBg.setSpacingBefore(25f);
@@ -240,12 +241,12 @@ public class ServiceImpl implements IService{
 				tableBg.addCell(c1);
 				document.add(tableBg);
 				
-				Paragraph backgroundInfoText = new Paragraph(cvRepo.findById(id).get().getBackground_information(),
+				Paragraph backgroundInfoText = new Paragraph(cv.get(0).getBackground_information(),
 						bgTextFont);
 				document.add(backgroundInfoText);
 			}
 			
-			if(cvRepo.findById(id).get().getOther_skills().length() > 0) {
+			if(cv.get(0).getOther_skills().length() > 0) {
 				PdfPTable tableOs = new PdfPTable(1);
 				tableOs.setWidthPercentage(105);
 				tableOs.setSpacingBefore(25f);
@@ -256,7 +257,7 @@ public class ServiceImpl implements IService{
 				PdfPCell c2 = new PdfPCell(otherSkills);
 				tableOs.addCell(c2);
 				document.add(tableOs);
-				Paragraph osInfoText = new Paragraph(cvRepo.findById(id).get().getOther_skills(),
+				Paragraph osInfoText = new Paragraph(cv.get(0).getOther_skills(),
 						bgTextFont);
 				document.add(osInfoText);
 			}
@@ -336,6 +337,30 @@ public class ServiceImpl implements IService{
 		}catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void clearEducation() {
+		educationRepo.deleteAll();
+		
+	}
+
+	@Override
+	public void clearJobs() {
+		jobExperienceRepo.deleteAll();
+		
+	}
+
+	@Override
+	public void clearLanguages() {
+		languagesRepo.deleteAll();
+		
+	}
+
+	@Override
+	public void clearCV() {
+		cvRepo.deleteAll();
+		
 	}
 
 	

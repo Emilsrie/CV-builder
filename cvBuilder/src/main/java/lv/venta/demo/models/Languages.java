@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 //Language skills
 @Entity
@@ -21,6 +22,7 @@ public class Languages {
 	@NotEmpty
 	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	@Column(name = "Language")
+	@Size(min = 1, max = 60)
 	private String language;
 	
 	@Column(name = "Speaking")

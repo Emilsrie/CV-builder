@@ -84,14 +84,6 @@ public class Languages {
 	public void setWriting(String writing) {
 		this.writing = writing;
 	}
-
-	/*
-	@Override
-	public String toString() {
-		return "Languages [language=" + language + ", speaking=" + speaking + ", understanding=" + understanding
-				+ ", writing=" + writing + "]";
-	}
-	*/
 	
 	@Override
 	public String toString() {

@@ -114,14 +114,6 @@ public class Education {
 		this.endDate = endDate;
 	}
 	
-	/*
-	@Override
-	public String toString() {
-		return "Education [school_name=" + school_name + ", field_of_study=" + field_of_study + ", location=" + location
-				+ ", degree=" + degree + ", startDate=" + startDate + ", endDate=" + endDate + "]";
-	}
-	*/
-	
 	@Override 
 	public String toString() {
 		return "School name: " + school_name + "\n" + "Field of study: " + field_of_study + "\n" + 

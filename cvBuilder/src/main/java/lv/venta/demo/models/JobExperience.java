@@ -105,7 +105,6 @@ public class JobExperience {
 
 	
 	public void setStartDate(Date startDate) {
-		//Validation. Maybe remake to Calendar
 		this.startDate = startDate;
 	}
 
@@ -114,17 +113,8 @@ public class JobExperience {
 	}
 
 	public void setEndDate(Date endDate) {
-		//Validation. Maybe remake to Calendar
 		this.endDate = endDate;
 	}
-
-	/*
-	@Override
-	public String toString() {
-		return "JobExperience [job_title=" + job_title + ", job_info=" + job_info + ", company_name=" + company_name
-				+ ", location=" + location + ", startDate=" + startDate + ", endDate=" + endDate + "]";
-	}
-    */
 	
 	@Override
 	public String toString() {

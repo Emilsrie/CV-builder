@@ -104,6 +104,12 @@ public class ServiceImpl implements IService{
 			  new File("C:\\PDF").mkdirs();
 		  }
 
+		 	 /*
+			PdfContentByte canvas = writer.getDirectContent();
+			canvas.rectangle(22, 774, 550, 20);
+			canvas.setColorFill(BaseColor.LIGHT_GRAY);
+		    canvas.fill();
+			*/
 		
 		  Document document = new Document();
 		  try {

@@ -47,8 +47,7 @@ public class CVBuilderController
 		if(!result.hasErrors()) {
 			serviceImpl.insertCV(cv);
 			return "redirect:/cvBuilder/job";
-		}
-		else {
+		} else {
 			return "data_input";
 		}
 	}

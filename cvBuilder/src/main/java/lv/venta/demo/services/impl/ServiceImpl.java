@@ -247,6 +247,19 @@ public class ServiceImpl implements IService{
 				document.add(languagesText);
 			}
 			
+			/*
+			 List orderList = new List(List.ORDERED);
+			orderList.add(new ListItem("Fun"));
+			orderList.add(new ListItem("That"));
+			orderList.add(new ListItem("Ends"));
+			document.add(orderList);
+			
+			List unorderList = new List(List.UNORDERED);
+			unorderList.add(new ListItem("That"));
+			unorderList.add(new ListItem("is"));
+			unorderList.add(new ListItem("nice"));
+			document.add(unorderList);
+			*/
 			
 			document.close();
 			writer.close();

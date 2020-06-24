@@ -138,23 +138,19 @@ public class CVBuilderController
 	}
 	
 	@RequestMapping("/download") //localhost:8080/cvBuilder/download
-	public void givePDF(HttpServletRequest request, HttpServletResponse response)
-	{
+	public void givePDF(HttpServletRequest request, HttpServletResponse response) {
 		String dataDirectory = "C:\\PDF";
 		//String dataDirectory = request.getSession().getServletContext().getRealPath("/Files/");
 		//System.out.println(dataDirectory);
 		Path file = Paths.get(dataDirectory, "MyCv.pdf");
-		if (Files.exists(file))
-		{
+		if (Files.exists(file)) {
 			response.setContentType("application/pdf");
 			response.addHeader("Content-Disposition", "attachment; filename ="+"MyCv.pdf");
-			try
-			{
+			try {
 				Files.copy(file, response.getOutputStream());
 				response.getOutputStream().flush();
 			}
-			catch (IOException ex)
-			{
+			catch (IOException ex) {
 				ex.printStackTrace();
 			}
 		}

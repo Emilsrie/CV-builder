@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="lv.venta.demo.models.Education" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/models/Education.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="495" width="252" x="122" y="-77"/>    
+    <position height="495" width="252" x="119" y="-100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -13,7 +13,7 @@
   <class id="2" language="java" name="lv.venta.demo.controllers.CVBuilderController" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/controllers/CVBuilderController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="315" width="381" x="730" y="-77"/>    
+    <position height="315" width="381" x="727" y="-100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -22,7 +22,7 @@
   </class>  
   <class id="3" language="java" name="lv.venta.demo.models.JobExperience" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/models/JobExperience.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="495" width="276" x="414" y="-77"/>    
+    <position height="495" width="276" x="411" y="-100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -31,7 +31,7 @@
   </class>  
   <interface id="4" language="java" name="lv.venta.demo.repo.IJobExperienceRepo" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/repo/IJobExperienceRepo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="63" width="141" x="406" y="1029"/>    
+    <position height="63" width="141" x="403" y="1006"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -40,7 +40,7 @@
   </interface>  
   <class id="5" language="java" name="lv.venta.demo.models.Languages" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/models/Languages.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="387" width="209" x="1151" y="-77"/>    
+    <position height="387" width="209" x="1148" y="-100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -49,7 +49,7 @@
   </class>  
   <interface id="6" language="java" name="lv.venta.demo.repo.ICVRepo" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/repo/ICVRepo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="63" width="103" x="587" y="1029"/>    
+    <position height="63" width="103" x="584" y="1006"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -58,7 +58,7 @@
   </interface>  
   <class id="7" language="java" name="lv.venta.demo.CvBuilderApplication" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/CvBuilderApplication.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="99" width="141" x="1400" y="-77"/>    
+    <position height="99" width="141" x="1397" y="-100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -67,7 +67,7 @@
   </class>  
   <interface id="8" language="java" name="lv.venta.demo.repo.ILanguagesRepo" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/repo/ILanguagesRepo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="63" width="119" x="730" y="1029"/>    
+    <position height="63" width="119" x="727" y="1006"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -76,7 +76,7 @@
   </interface>  
   <class id="9" language="java" name="lv.venta.demo.models.CV" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/models/CV.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="711" width="356" x="1581" y="-77"/>    
+    <position height="711" width="356" x="1578" y="-100"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -85,7 +85,7 @@
   </class>  
   <interface id="10" language="java" name="lv.venta.demo.services.IService" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/services/IService.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="297" width="283" x="889" y="1029"/>    
+    <position height="297" width="283" x="886" y="1006"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -94,7 +94,7 @@
   </interface>  
   <interface id="11" language="java" name="lv.venta.demo.repo.IEducationRepo" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/repo/IEducationRepo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="63" width="112" x="1212" y="1029"/>    
+    <position height="63" width="112" x="1209" y="1006"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -103,7 +103,7 @@
   </interface>  
   <class id="12" language="java" name="lv.venta.demo.services.impl.ServiceImpl" project="cvBuilder" 
     file="/cvBuilder/src/main/java/lv/venta/demo/services/impl/ServiceImpl.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="315" width="283" x="730" y="674"/>    
+    <position height="315" width="283" x="727" y="651"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -111,49 +111,49 @@
     </display>  
   </class>  
   <association id="13">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="14" name="jobExperienceRepo"/>      
-      <multiplicity id="15" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="16">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="17" name="cvRepo"/>      
-      <multiplicity id="18" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="6" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="19">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="20" name="languagesRepo"/>      
-      <multiplicity id="21" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="8" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="22">    
     <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="23" name="serviceImpl"/>      
-      <multiplicity id="24" minimum="0" maximum="1"/>    
+      <attribute id="14" name="serviceImpl"/>      
+      <multiplicity id="15" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="12" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="25">    
+  <realization id="16">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <association id="17">    
     <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="26" name="educationRepo"/>      
-      <multiplicity id="27" minimum="0" maximum="1"/>    
+      <attribute id="18" name="languagesRepo"/>      
+      <multiplicity id="19" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="8" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="20">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="21" name="educationRepo"/>      
+      <multiplicity id="22" minimum="0" maximum="1"/>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="28">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="10"/>  
-  </realization>  
+  <association id="23">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="24" name="cvRepo"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="6" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="26">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="27" name="jobExperienceRepo"/>      
+      <multiplicity id="28" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
     <attributes public="true" package="true" protected="true" private="true" static="true"/>    

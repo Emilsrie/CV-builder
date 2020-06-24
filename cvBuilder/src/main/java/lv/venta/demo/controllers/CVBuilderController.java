@@ -170,7 +170,7 @@ public class CVBuilderController
 		Path file = Paths.get(dataDirectory, "MyCv.pdf");
 		if (Files.exists(file)) {
 			response.setContentType("application/pdf");
-			response.addHeader("Content-Disposition", "attachment; filename ="+"MyCv.pdf");
+			response.addHeader("Content-Disposition", "attachment; filename =" + "MyCv.pdf");
 			try {
 				Files.copy(file, response.getOutputStream());
 				response.getOutputStream().flush();

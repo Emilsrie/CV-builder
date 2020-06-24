@@ -108,7 +108,7 @@ public class ServiceImpl implements IService{
     
 		  if(!Files.isDirectory(Paths.get("C:\\PDF")))
 		  {
-			  System.out.println("didnt find");
+			  System.out.println("didn't find");
 			  new File("C:\\PDF").mkdirs();
 		  }
 

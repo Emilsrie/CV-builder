@@ -25,7 +25,7 @@ import lv.venta.demo.services.impl.ServiceImpl;
 //http://localhost:8080/h2-console
 //jdbc:h2:file:~/cv
 @Controller
-@RequestMapping("/cvBuilder") //localhost:8080/cvBuilder
+@RequestMapping("/cvBuilder")
 public class CVBuilderController
 {
 	@Autowired
@@ -127,17 +127,8 @@ public class CVBuilderController
 		}
 	}
 	
-	/* obsolete
-	@GetMapping("/showdata") //localhost:8080/cvBuilder/showdata
-	public String show(Model model) {
-		model.addAttribute("innerObj", serviceImpl.selectAllCVs());
-		return "show";
-	}
-	*/
-	
 	@GetMapping("/done")
-	public String sayCVIsDone() throws IOException
-	{
+	public String sayCVIsDone() throws IOException {
 		serviceImpl.createPDF();
 		serviceImpl.clearEducation();
 		serviceImpl.clearJobs();
@@ -146,7 +137,7 @@ public class CVBuilderController
 		return "download";
 	}
 	
-	@RequestMapping("/download") ////localhost:8080/cvBuilder/download
+	@RequestMapping("/download") //localhost:8080/cvBuilder/download
 	public void givePDF(HttpServletRequest request, HttpServletResponse response)
 	{
 		String dataDirectory = "C:\\PDF";

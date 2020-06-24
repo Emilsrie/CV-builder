@@ -25,13 +25,13 @@ public class CV {
 	@NotEmpty
 	@Column(name = "Name")
 	@Size(min = 3, max = 60)
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒģĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	private String name;
 	
 	@NotEmpty
 	@Column(name = "Surname")
 	@Size(min = 3, max = 60)
-	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
+	@Pattern(regexp = "^[a-zA-Z-āĀčČēĒģĢīĪķĶļĻņŅšŠžŽ\\s]+$", message="Invalid letters")
 	private String surname;
 	
 	@NotEmpty
@@ -70,8 +70,8 @@ public class CV {
 	}
 
 	public CV(
-			@NotEmpty @Size(min = 3, max = 60) @Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") String name,
-			@NotEmpty @Size(min = 3, max = 60) @Pattern(regexp = "^[a-zA-Z-āĀčČēĒgĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") String surname,
+			@NotEmpty @Size(min = 3, max = 60) @Pattern(regexp = "^[a-zA-Z-āĀčČēĒģĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") String name,
+			@NotEmpty @Size(min = 3, max = 60) @Pattern(regexp = "^[a-zA-Z-āĀčČēĒģĢīĪķĶļĻņŅšŠžŽ\\s]+$", message = "Invalid letters") String surname,
 			@NotEmpty @Pattern(regexp = "^[0-9]*$") @Size(min = 8, max = 8) String phone_number, String address,
 			String city, String province, String zip_code, @Email @NotEmpty String email, String background_information,
 			String other_skills) {

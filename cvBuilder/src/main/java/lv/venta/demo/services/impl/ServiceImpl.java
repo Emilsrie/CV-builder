@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -56,13 +57,6 @@ public class ServiceImpl implements IService{
 	@Autowired
 	ILanguagesRepo languagesRepo;
 
-	//ArrayList<Education> allEducations = (ArrayList<Education>) educationRepo.findAll();
-	//ArrayList<JobExperience> allJobExperiences = (ArrayList<JobExperience>) jobExperienceRepo.findAll();
-	//ArrayList<Languages> allLanguages = (ArrayList<Languages>) languagesRepo.findAll();
-	
-	
-	
-	
 	
 	@Override
 	public ArrayList<JobExperience> selectAllJobExperiences(){
@@ -109,53 +103,8 @@ public class ServiceImpl implements IService{
 		
 	}
 
-	/*
-	@Override
-	public void putAllDataInFile() {
-		try {
-		File myfile = new File("testfile.txt");
-		
-			if(myfile.createNewFile())
-			{
-				System.out.println("File created: " + myfile.getName());
-			}
-			else
-			{
-				System.out.println("already exists");
-			}
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		try
-		{
-			FileWriter myWriter = new FileWriter("testfile.txt");
-			for(CV c: cvRepo.findAll())
-			{
-				myWriter.write(c.toString());
-			}
-			for(JobExperience j: jobExperienceRepo.findAll())
-			{
-				myWriter.write(j.toString());
-			}
-			for(Education e: educationRepo.findAll())
-			{
-				myWriter.write(e.toString());
-			}
-			for(Languages l: languagesRepo.findAll())
-			{
-				myWriter.write(l.toString());
-			}
-			myWriter.close();
-		}catch (IOException e)
-		{
-			System.out.println("error");
-			e.printStackTrace();
-		}
-	}
-	*/
-
+	
+	//Method to create a pdf file
 	@Override
 	public void createPDF(int id) throws IOException {
 		
@@ -164,50 +113,50 @@ public class ServiceImpl implements IService{
 		ArrayList<Languages> allLanguages = (ArrayList<Languages>) languagesRepo.findAll();
 		
 		Document document = new Document();
-		try {
+		try {			
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("MyCV.pdf"));
 			document.open();
 			
-		 	 /*
-			PdfContentByte canvas = writer.getDirectContent();
-			canvas.rectangle(22, 774, 550, 20);
-			canvas.setColorFill(BaseColor.LIGHT_GRAY);
-		    canvas.fill();
-			*/
-			
+			//NAME block
 			Font nameFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
 			Paragraph nameAndSurname = new Paragraph(cvRepo.findById(id).get().getName() + " " + cvRepo.findById(id).get().getSurname(), nameFont);
 			nameAndSurname.setAlignment(Element.ALIGN_CENTER);
 			document.add(nameAndSurname);
 			document.add(Chunk.NEWLINE);
 			
+			//PhoneNR block
 			Font phoneNrFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
 			Paragraph phoneNumber = new Paragraph("Phone number: " + cvRepo.findById(id).get().getPhone_number(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(phoneNumber);
 			
+			//Email block
 			Paragraph email = new Paragraph("Email: " + cvRepo.findById(id).get().getEmail(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(email);
 			
+			//Address block
 			if(cvRepo.findById(id).get().getAddress() != null) {
 				Paragraph address = new Paragraph("Address: " + cvRepo.findById(id).get().getAddress(), phoneNrFont);
 				nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 				document.add(address);
 			}
 			
+			//City block
 			if(cvRepo.findById(id).get().getCity() != null) {
 				Paragraph city = new Paragraph("City: " + cvRepo.findById(id).get().getCity(), phoneNrFont);
 				nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 				document.add(city);
 			}
 			
+			//Province block
 			if(cvRepo.findById(id).get().getProvince() != null) {
 			Paragraph province = new Paragraph("Province: " + cvRepo.findById(id).get().getProvince(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(province);
 			}
 			
+			//Zip Code block
 			if(cvRepo.findById(id).get().getZip_code() != null) {
 			Paragraph zipCode = new Paragraph("ZipCode: " + cvRepo.findById(id).get().getZip_code(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
@@ -223,6 +172,7 @@ public class ServiceImpl implements IService{
 			Font bgFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
 			Font bgTextFont = new Font(Font.FontFamily.TIMES_ROMAN, 12);
 			
+			//Background Info block
 			if(cvRepo.findById(id).get().getBackground_information().length() > 0) {
 				PdfPTable tableBg = new PdfPTable(1);
 				tableBg.setWidthPercentage(105);
@@ -242,6 +192,7 @@ public class ServiceImpl implements IService{
 				document.add(backgroundInfoText);
 			}
 			
+			//Other skills block
 			if(cvRepo.findById(id).get().getOther_skills().length() > 0) {
 				PdfPTable tableOs = new PdfPTable(1);
 				tableOs.setWidthPercentage(105);
@@ -258,6 +209,7 @@ public class ServiceImpl implements IService{
 				document.add(osInfoText);
 			}
 			
+			//Education block
 			for(int i = 0; i < educationRepo.count(); i++) {
 				PdfPTable tableEdu = new PdfPTable(1);
 				tableEdu.setWidthPercentage(105);
@@ -274,6 +226,7 @@ public class ServiceImpl implements IService{
 				document.add(educationText);
 			}
 			
+			//Job Experience block
 			if(!allJobExperiences.isEmpty()) {
 				for(int i = 0; i < jobExperienceRepo.count(); i++) {
 					PdfPTable tableJobExp = new PdfPTable(1);
@@ -292,6 +245,7 @@ public class ServiceImpl implements IService{
 				}
 			}
 			
+			//Language block
 			for(int i = 0; i < languagesRepo.count(); i++) {
 				PdfPTable tableLang = new PdfPTable(1);
 				tableLang.setWidthPercentage(105);
@@ -312,17 +266,28 @@ public class ServiceImpl implements IService{
 		
 			
 			/*
-			 List orderList = new List(List.ORDERED);
+			 
+			--Set of commands to create an ordered list(for future use)--
+			List orderList = new List(List.ORDERED);
 			orderList.add(new ListItem("Fun"));
 			orderList.add(new ListItem("That"));
 			orderList.add(new ListItem("Ends"));
 			document.add(orderList);
 			
+			--Set of commands to create a unordered list(for future use)--
 			List unorderList = new List(List.UNORDERED);
 			unorderList.add(new ListItem("That"));
 			unorderList.add(new ListItem("is"));
 			unorderList.add(new ListItem("nice"));
 			document.add(unorderList);
+			
+		 	--Set of commands to create a canvas with color (for future use)--
+			PdfContentByte canvas = writer.getDirectContent();
+			canvas.rectangle(22, 774, 550, 20);
+			canvas.setColorFill(BaseColor.LIGHT_GRAY);
+		    canvas.fill();
+			
+			
 			*/
 			
 			document.close();
@@ -332,7 +297,7 @@ public class ServiceImpl implements IService{
 			e.printStackTrace();
 		}catch(FileNotFoundException e) {
 			e.printStackTrace();
-		}
+		};
 	}
 
 	

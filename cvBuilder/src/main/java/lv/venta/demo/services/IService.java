@@ -2,7 +2,6 @@ package lv.venta.demo.services;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
 import lv.venta.demo.models.CV;
 import lv.venta.demo.models.Education;

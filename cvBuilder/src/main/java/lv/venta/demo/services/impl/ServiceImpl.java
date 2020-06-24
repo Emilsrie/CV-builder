@@ -254,14 +254,14 @@ public class ServiceImpl implements IService{
 			}
 			
 			/*
-			--Set of commands to create an ordered list(for future use)--
+			--Set of commands to create an ordered list (for future use)--
 			List orderList = new List(List.ORDERED);
 			orderList.add(new ListItem("Fun"));
 			orderList.add(new ListItem("That"));
 			orderList.add(new ListItem("Ends"));
 			document.add(orderList);
 			
-			--Set of commands to create a unordered list(for future use)--
+			--Set of commands to create a unordered list (for future use)--
 			List unorderList = new List(List.UNORDERED);
 			unorderList.add(new ListItem("That"));
 			unorderList.add(new ListItem("is"));

@@ -29,7 +29,7 @@ import lv.venta.demo.services.impl.ServiceImpl;
 public class CVBuilderController
 {
 	@Autowired
-	ServiceImpl serviceImpl;
+	ServiceImpl serviceImpl; 
 
 	
 	@GetMapping("/build") //localhost:8080/cvBuilder/build

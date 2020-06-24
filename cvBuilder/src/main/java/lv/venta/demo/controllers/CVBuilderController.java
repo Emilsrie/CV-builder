@@ -172,11 +172,10 @@ public class CVBuilderController
 
 	//used for testing currently obsolete
 	
-	/*
+
 	@GetMapping("/test")
 	public String makeFile() throws IOException {
 		serviceImpl.createPDF();
-		return "hello";
+		return "test";
 	}
-	*/
 }

@@ -49,31 +49,28 @@ public class ServiceImpl implements IService{
 
 	
 	@Override
-	public ArrayList<JobExperience> selectAllJobExperiences(){
+	public ArrayList<JobExperience> selectAllJobExperiences() {
 		return (ArrayList<JobExperience>) jobExperienceRepo.findAll();
 	}
 	
 	@Override
-	public ArrayList<Education> selectAllEducations(){
+	public ArrayList<Education> selectAllEducations() {
 		return (ArrayList<Education>) educationRepo.findAll();
 	}
 	
 	@Override
-	public ArrayList<Languages> selectAllLanguages(){
+	public ArrayList<Languages> selectAllLanguages() {
 		return (ArrayList<Languages>) languagesRepo.findAll();
 	}
 
 	@Override
-	public ArrayList<CV> selectAllCVs()
-	{
+	public ArrayList<CV> selectAllCVs() {
 		return (ArrayList<CV>) cvRepo.findAll();
  	}
 
 	@Override
-	public void insertCV(CV cv)
-	{
+	public void insertCV(CV cv){
 		cvRepo.save(cv);
-		
 	}
 	
 	@Override 

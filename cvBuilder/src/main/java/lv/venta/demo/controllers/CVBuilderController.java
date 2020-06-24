@@ -30,7 +30,7 @@ public class CVBuilderController
 {
 	@Autowired
 	ServiceImpl serviceImpl; 
-
+ 
 	
 	@GetMapping("/build") //localhost:8080/cvBuilder/build
 	public String makeCVGet(CV cv) {

@@ -93,8 +93,6 @@ public class ServiceImpl implements IService{
 		
 	}
 
-
-
 	@Override
 	public void createPDF() throws IOException {
 		
@@ -114,13 +112,6 @@ public class ServiceImpl implements IService{
 		  try {
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("C:\\PDF\\MyCV.pdf"));
 			document.open();
-			
-		 	 /*
-			PdfContentByte canvas = writer.getDirectContent();
-			canvas.rectangle(22, 774, 550, 20);
-			canvas.setColorFill(BaseColor.LIGHT_GRAY);
-		    canvas.fill();
-			*/
 			
 			Font nameFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
 			Paragraph nameAndSurname = new Paragraph(cv.get(0).getName() + " " + cv.get(0).getSurname(), nameFont);
@@ -161,9 +152,7 @@ public class ServiceImpl implements IService{
 			document.add(zipCode);
 			}
 			
-			
-			
-			
+				
 			
 			
 			float[] colWidth = {2f};
@@ -256,22 +245,6 @@ public class ServiceImpl implements IService{
 			}
 			
 			
-		
-			
-			/*
-			 List orderList = new List(List.ORDERED);
-			orderList.add(new ListItem("Fun"));
-			orderList.add(new ListItem("That"));
-			orderList.add(new ListItem("Ends"));
-			document.add(orderList);
-			
-			List unorderList = new List(List.UNORDERED);
-			unorderList.add(new ListItem("That"));
-			unorderList.add(new ListItem("is"));
-			unorderList.add(new ListItem("nice"));
-			document.add(unorderList);
-			*/
-			
 			document.close();
 			writer.close();
 
@@ -285,25 +258,21 @@ public class ServiceImpl implements IService{
 	@Override
 	public void clearEducation() {
 		educationRepo.deleteAll();
-		
 	}
 
 	@Override
 	public void clearJobs() {
 		jobExperienceRepo.deleteAll();
-		
 	}
 
 	@Override
 	public void clearLanguages() {
 		languagesRepo.deleteAll();
-		
 	}
 
 	@Override
 	public void clearCV() {
 		cvRepo.deleteAll();
-		
 	}
 
 	

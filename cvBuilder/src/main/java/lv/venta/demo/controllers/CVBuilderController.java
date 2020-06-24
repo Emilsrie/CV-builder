@@ -32,11 +32,14 @@ public class CVBuilderController
 	ServiceImpl serviceImpl; 
  
 	
+	//start page, all the basic personal info is input here such as Name Surname Phone Nr. etc.
 	@GetMapping("/build") //localhost:8080/cvBuilder/build
 	public String makeCVGet(CV cv) {
 		return "data_input";
 	}
 	
+	//once basic data is submitted if no errors occurred a CV object is saved in the repository,
+	//and the user is directed further to the job section
 	@PostMapping("/build")
 	public String makeCVPost(@Valid CV cv, BindingResult result) {
 		
@@ -51,11 +54,16 @@ public class CVBuilderController
 		}
 	}
 	
+	
+	//shows html page for entering job experience, the page has 2 submit buttons one which sends the data to the same url and one which sends it to job/cont
 	@GetMapping("/job") //localhost:8080/cvBuilder/job
 	public String insertJobExperienceGet(JobExperience jobExperience) {
 		return "job-input";
 	}
 	
+	
+	//once job data is submitted if no errors occurred a JobExperience object is saved in the repository,
+	//and the user is directed back to this url, and can make another job experience entry
 	@PostMapping("/job")
 	public String insertJobExperiencePost(@Valid JobExperience jobExperience, BindingResult result) {
 		if(!result.hasErrors()) {
@@ -66,6 +74,9 @@ public class CVBuilderController
 		}
 	}
 	
+	
+	//once job data is submitted if no errors occurred a JobExperience object is saved in the repository,
+	//and the user is directed to the education info section
 	@PostMapping("/job/cont")
 	public String insertJobAndContinuetoEducation(@Valid JobExperience jobExperience, BindingResult result) {
 		if(!result.hasErrors()) {
@@ -76,11 +87,16 @@ public class CVBuilderController
 		}
 	}
 	 
+	
+	//shows html page for entering education information, the page has 2 submit buttons one which sends the data to the same url and one which sends it to edu/cont
 	@GetMapping("/edu") //localhost:8080/cvBuilder/edu
 	public String insertEducation(Education education) {
 		return "edu-input";
 	}
 	
+	
+	//once education data is submitted if no errors occurred an Education object is saved in the repository,
+	//and the user is directed back to this url, and can make another education entry
 	@PostMapping("/edu")
 	public String insertEducationNew(@Valid Education education, BindingResult result) {
 		if(!result.hasErrors()) {
@@ -91,6 +107,9 @@ public class CVBuilderController
 		}
 	}
 	
+	
+	//once job data is submitted if no errors occurred an Education object is saved in the repository,
+	//and the user is directed to the languages section
 	@PostMapping("/edu/cont")
 	public String insertEducationAndContinueToLanguages(@Valid Education education, BindingResult result) {
 		if(!result.hasErrors()) {
@@ -101,11 +120,16 @@ public class CVBuilderController
 		}
 	}
 	
+	
+	//shows html page for entering languages information, which is entered using dropdowns of language proficiency levels, the page has 2 submit buttons one which sends the data to the same url and one which sends it to languages/cont
 	@GetMapping("/languages") //localhost:8080/cvBuilder/languages
 	public String insertLanguages(Languages languages) {
 		return "languages-input";
 	}
 	
+	
+	//once education data is submitted if no errors occurred a Languages object is saved in the repository,
+	//and the user is directed back to this url, and can make another languages entry
 	@PostMapping("/languages")
 	public String insertLanguagesNew(@Valid Languages languages, BindingResult result) {
 		if(!result.hasErrors()) {
@@ -116,7 +140,8 @@ public class CVBuilderController
 		}
 	}
 	
-	
+	//once job data is submitted if no errors occurred a Languages object is saved in the repository,
+	//and the user is directed to the final page
 	@PostMapping("/languages/cont")
 	public String insertLanguagesAndContinueToCreation(@Valid Languages languages, BindingResult result) {
 		if(!result.hasErrors()) {
@@ -127,6 +152,8 @@ public class CVBuilderController
 		}
 	}
 	
+
+	//once all of the data has been entered, the user reaches this page, the CV has been created in PDF form, the repositories are cleaned and the user can press a button to download the PDF from the server
 	@GetMapping("/done")
 	public String sayCVIsDone() throws IOException {
 		serviceImpl.createPDF();
@@ -137,11 +164,12 @@ public class CVBuilderController
 		return "download";
 	}
 	
-	@RequestMapping("/download") //localhost:8080/cvBuilder/download
-	public void givePDF(HttpServletRequest request, HttpServletResponse response) {
+
+	//if download button is pressed in the download html page, we check if the MyCv.pdf file exists in the directory where it was created and send it to the user as a download
+	@RequestMapping("/download") ////localhost:8080/cvBuilder/download
+	public void givePDF(HttpServletResponse response)
+	{
 		String dataDirectory = "C:\\PDF";
-		//String dataDirectory = request.getSession().getServletContext().getRealPath("/Files/");
-		//System.out.println(dataDirectory);
 		Path file = Paths.get(dataDirectory, "MyCv.pdf");
 		if (Files.exists(file)) {
 			response.setContentType("application/pdf");
@@ -154,6 +182,5 @@ public class CVBuilderController
 				ex.printStackTrace();
 			}
 		}
-		//return "download";
 	}
 }

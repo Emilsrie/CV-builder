@@ -160,8 +160,6 @@ public class CVBuilderController
 		}
 		//return "download";
 	}
-
-	//used for testing currently obsolete
 	
 
 	@GetMapping("/test")

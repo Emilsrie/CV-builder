@@ -172,7 +172,7 @@ public class CVBuilderController
 			response.setContentType("application/pdf");
 			response.addHeader("Content-Disposition", "attachment; filename =" + "MyCv.pdf");
 			try {
-				Files.copy(file, response.getOutputStream());
+				Files.copy(file, response.getOutputStream()); //response - tur kur aizsuta
 				response.getOutputStream().flush();
 			}
 			catch (IOException ex) {

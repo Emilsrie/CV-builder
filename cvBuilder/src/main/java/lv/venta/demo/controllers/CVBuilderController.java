@@ -160,11 +160,4 @@ public class CVBuilderController
 		}
 		//return "download";
 	}
-	
-
-	@GetMapping("/test")
-	public String makeFile() throws IOException {
-		serviceImpl.createPDF();
-		return "test";
-	}
 }

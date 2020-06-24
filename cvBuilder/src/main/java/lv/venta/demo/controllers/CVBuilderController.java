@@ -165,8 +165,7 @@ public class CVBuilderController
 
 	//if download button is pressed in the download html page, we check if the MyCv.pdf file exists in the directory where it was created and send it to the user as a download
 	@RequestMapping("/download") ////localhost:8080/cvBuilder/download
-	public void givePDF(HttpServletResponse response)
-	{
+	public void givePDF(HttpServletResponse response) {
 		String dataDirectory = "C:\\PDF";
 		Path file = Paths.get(dataDirectory, "MyCv.pdf");
 		if (Files.exists(file)) {

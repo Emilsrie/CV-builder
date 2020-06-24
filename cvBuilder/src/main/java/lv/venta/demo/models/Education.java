@@ -101,7 +101,6 @@ public class Education {
 	}
 
 	public void setStartDate(Date startDate) {
-		//Validation. Maybe remake to Calendar
 		this.startDate = startDate;
 	}
 
@@ -110,7 +109,6 @@ public class Education {
 	}
 
 	public void setEndDate(Date endDate) {
-		//Validation. Maybe remake to Calendar
 		this.endDate = endDate;
 	}
 	

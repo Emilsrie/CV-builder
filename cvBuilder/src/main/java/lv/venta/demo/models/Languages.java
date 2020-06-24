@@ -85,9 +85,17 @@ public class Languages {
 		this.writing = writing;
 	}
 
+	/*
 	@Override
 	public String toString() {
 		return "Languages [language=" + language + ", speaking=" + speaking + ", understanding=" + understanding
 				+ ", writing=" + writing + "]";
+	}
+	*/
+	
+	@Override
+	public String toString() {
+		return "Language: " + language + "\n" + "Speaking: " + speaking + "\n" + "Understanding: " + understanding +
+				"\n" + "Writing: " + writing;
 	}
 }

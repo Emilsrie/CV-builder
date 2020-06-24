@@ -2,7 +2,6 @@ package lv.venta.demo.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -173,11 +172,10 @@ public class CVBuilderController
 
 	//used for testing currently obsolete
 	
-	/*
+
 	@GetMapping("/test")
 	public String makeFile() throws IOException {
 		serviceImpl.createPDF();
-		return "hello";
+		return "test";
 	}
-	*/
 }

@@ -261,17 +261,25 @@ public class ServiceImpl implements IService{
 			}
 			
 			/*
-			 List orderList = new List(List.ORDERED);
+			--Set of commands to create an ordered list(for future use)--
+			List orderList = new List(List.ORDERED);
 			orderList.add(new ListItem("Fun"));
 			orderList.add(new ListItem("That"));
 			orderList.add(new ListItem("Ends"));
 			document.add(orderList);
 			
+			--Set of commands to create a unordered list(for future use)--
 			List unorderList = new List(List.UNORDERED);
 			unorderList.add(new ListItem("That"));
 			unorderList.add(new ListItem("is"));
 			unorderList.add(new ListItem("nice"));
 			document.add(unorderList);
+			
+		 	--Set of commands to create a canvas with color (for future use)--
+			PdfContentByte canvas = writer.getDirectContent();
+			canvas.rectangle(22, 774, 550, 20);
+			canvas.setColorFill(BaseColor.LIGHT_GRAY);
+		    canvas.fill();
 			*/
 			
 			document.close();

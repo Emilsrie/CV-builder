@@ -166,7 +166,7 @@ public class CVBuilderController
 	}
 	
 	
-	//
+	//if download button is pressed in the download html page, 
 	@RequestMapping("/download") ////localhost:8080/cvBuilder/download
 	public void givePDF(HttpServletRequest request, HttpServletResponse response)
 	{

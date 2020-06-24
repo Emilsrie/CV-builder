@@ -9,7 +9,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Service; 
 
 import lv.venta.demo.models.CV;
 import lv.venta.demo.models.Education;

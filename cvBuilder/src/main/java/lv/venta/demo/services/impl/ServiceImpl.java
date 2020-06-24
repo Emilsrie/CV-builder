@@ -52,7 +52,7 @@ public class ServiceImpl implements IService{
 	public ArrayList<JobExperience> selectAllJobExperiences() {
 		return (ArrayList<JobExperience>) jobExperienceRepo.findAll();
 	}
-	
+	 
 	@Override
 	public ArrayList<Education> selectAllEducations() {
 		return (ArrayList<Education>) educationRepo.findAll();

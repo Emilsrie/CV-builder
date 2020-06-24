@@ -25,12 +25,12 @@ import lv.venta.demo.services.impl.ServiceImpl;
 //http://localhost:8080/h2-console
 //jdbc:h2:file:~/cv
 @Controller
-@RequestMapping("/cvBuilder") //localhost:8080/cvBuilder
+@RequestMapping("/cvBuilder")
 public class CVBuilderController
 {
 	@Autowired
 	ServiceImpl serviceImpl; 
-
+ 
 	
 	//start page, all the basic personal info is input here such as Name Surname Phone Nr. etc.
 	@GetMapping("/build") //localhost:8080/cvBuilder/build
@@ -152,11 +152,10 @@ public class CVBuilderController
 		}
 	}
 	
-	
+
 	//once all of the data has been entered, the user reaches this page, the CV has been created in PDF form, and the user can press a button to download the PDF from the server
 	@GetMapping("/done")
-	public String sayCVIsDone() throws IOException
-	{
+	public String sayCVIsDone() throws IOException {
 		serviceImpl.createPDF();
 		serviceImpl.clearEducation();
 		serviceImpl.clearJobs();
@@ -165,24 +164,21 @@ public class CVBuilderController
 		return "download";
 	}
 	
-	
+
 	//if download button is pressed in the download html page, 
 	@RequestMapping("/download") ////localhost:8080/cvBuilder/download
 	public void givePDF(HttpServletRequest request, HttpServletResponse response)
 	{
 		String dataDirectory = "C:\\PDF";
 		Path file = Paths.get(dataDirectory, "MyCv.pdf");
-		if (Files.exists(file))
-		{
+		if (Files.exists(file)) {
 			response.setContentType("application/pdf");
 			response.addHeader("Content-Disposition", "attachment; filename ="+"MyCv.pdf");
-			try
-			{
+			try {
 				Files.copy(file, response.getOutputStream());
 				response.getOutputStream().flush();
 			}
-			catch (IOException ex)
-			{
+			catch (IOException ex) {
 				ex.printStackTrace();
 			}
 		}

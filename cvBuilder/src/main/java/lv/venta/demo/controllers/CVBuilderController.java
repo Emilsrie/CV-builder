@@ -41,7 +41,7 @@ public class CVBuilderController
 	//and the user is directed further to the job section
 	@PostMapping("/build")
 	public String makeCVPost(@Valid CV cv, BindingResult result) {
-		
+		//For testing
 		System.out.println(cv);
 		
 		if(!result.hasErrors()) {

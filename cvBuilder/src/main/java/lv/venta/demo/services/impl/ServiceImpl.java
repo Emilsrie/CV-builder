@@ -89,7 +89,8 @@ public class ServiceImpl implements IService{
 		languagesRepo.save(lang);
 		
 	}
-
+	
+	//Method to create a pdf file
 	@Override
 	public void createPDF() throws IOException {
 		
@@ -116,39 +117,46 @@ public class ServiceImpl implements IService{
 			PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream("C:\\PDF\\MyCV.pdf"));
 			document.open();
 			
+			//NAME block
 			Font nameFont = new Font(Font.FontFamily.TIMES_ROMAN, 18, Font.BOLD);
 			Paragraph nameAndSurname = new Paragraph(cv.get(0).getName() + " " + cv.get(0).getSurname(), nameFont);
 			nameAndSurname.setAlignment(Element.ALIGN_CENTER);
 			document.add(nameAndSurname);
 			document.add(Chunk.NEWLINE);
 			
+			//PhoneNR block
 			Font phoneNrFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
 			Paragraph phoneNumber = new Paragraph("Phone number: " + cv.get(0).getPhone_number(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(phoneNumber);
 			
+			//Email block
 			Paragraph email = new Paragraph("Email: " + cv.get(0).getEmail(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(email);
 			
+			//Address block
 			if(cv.get(0).getAddress() != null) {
 				Paragraph address = new Paragraph("Address: " + cv.get(0).getAddress(), phoneNrFont);
 				nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 				document.add(address);
 			}
 			
+			//City block
 			if(cv.get(0).getCity() != null) {
 				Paragraph city = new Paragraph("City: " + cv.get(0).getCity(), phoneNrFont);
 				nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 				document.add(city);
 			}
 			
+			//Province block
 			if(cv.get(0).getProvince() != null) {
 			Paragraph province = new Paragraph("Province: " + cv.get(0).getProvince(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
 			document.add(province);
 			}
 			
+			//Zip Code block
 			if(cv.get(0).getZip_code() != null) {
 			Paragraph zipCode = new Paragraph("ZipCode: " + cv.get(0).getZip_code(), phoneNrFont);
 			nameAndSurname.setAlignment(Element.ALIGN_LEFT);
@@ -162,6 +170,7 @@ public class ServiceImpl implements IService{
 			Font bgFont = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.BOLD);
 			Font bgTextFont = new Font(Font.FontFamily.TIMES_ROMAN, 12);
 			
+			//Background Info block
 			if(cv.get(0).getBackground_information().length() > 0) {
 				PdfPTable tableBg = new PdfPTable(1);
 				tableBg.setWidthPercentage(105);
@@ -181,6 +190,7 @@ public class ServiceImpl implements IService{
 				document.add(backgroundInfoText);
 			}
 			
+			//Other skills block
 			if(cv.get(0).getOther_skills().length() > 0) {
 				PdfPTable tableOs = new PdfPTable(1);
 				tableOs.setWidthPercentage(105);
@@ -197,6 +207,7 @@ public class ServiceImpl implements IService{
 				document.add(osInfoText);
 			}
 			
+			//Education block
 			for(int i = 0; i < educationRepo.count(); i++) {
 				PdfPTable tableEdu = new PdfPTable(1);
 				tableEdu.setWidthPercentage(105);
@@ -213,6 +224,7 @@ public class ServiceImpl implements IService{
 				document.add(educationText);
 			}
 			
+			//Job Experience block
 			if(!allJobExperiences.isEmpty()) {
 				for(int i = 0; i < jobExperienceRepo.count(); i++) {
 					PdfPTable tableJobExp = new PdfPTable(1);
@@ -231,6 +243,7 @@ public class ServiceImpl implements IService{
 				}
 			}
 			
+			//Language block
 			for(int i = 0; i < languagesRepo.count(); i++) {
 				PdfPTable tableLang = new PdfPTable(1);
 				tableLang.setWidthPercentage(105);

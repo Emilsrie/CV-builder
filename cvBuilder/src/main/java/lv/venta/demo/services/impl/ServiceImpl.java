@@ -98,19 +98,12 @@ public class ServiceImpl implements IService{
 		ArrayList<Education> allEducations = (ArrayList<Education>) educationRepo.findAll();
 		ArrayList<JobExperience> allJobExperiences = (ArrayList<JobExperience>) jobExperienceRepo.findAll();
 		ArrayList<Languages> allLanguages = (ArrayList<Languages>) languagesRepo.findAll();
-    
-		  if(!Files.isDirectory(Paths.get("C:\\PDF")))
-		  {
-			  System.out.println("didn't find");
-			  new File("C:\\PDF").mkdirs();
-		  }
-
-		 	 /*
-			PdfContentByte canvas = writer.getDirectContent();
-			canvas.rectangle(22, 774, 550, 20);
-			canvas.setColorFill(BaseColor.LIGHT_GRAY);
-		    canvas.fill();
-			*/
+		
+		
+		if(!Files.isDirectory(Paths.get("C:\\PDF"))) {
+			System.out.println("didn't find");
+			new File("C:\\PDF").mkdirs();
+		}
 		
 		  Document document = new Document();
 		  try {
@@ -179,7 +172,7 @@ public class ServiceImpl implements IService{
 				
 				
 				tableBg.setWidths(colWidth);
-
+		
 				Paragraph backgroundInfo = new Paragraph("Background information", bgFont);
 				PdfPCell c1 = new PdfPCell(backgroundInfo);
 				tableBg.addCell(c1);
@@ -284,10 +277,10 @@ public class ServiceImpl implements IService{
 			
 			document.close();
 			writer.close();
-
-		}catch(DocumentException e) {
+		
+		} catch(DocumentException e) {
 			e.printStackTrace();
-		}catch(FileNotFoundException e) {
+		} catch(FileNotFoundException e) {
 			e.printStackTrace();
 		}
 	}
